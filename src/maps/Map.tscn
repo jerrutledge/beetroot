@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/forest2.jpg" type="Texture" id=2]
 [ext_resource path="res://src/player/Player.gd" type="Script" id=3]
+[ext_resource path="res://examples/WithSignals.tscn" type="PackedScene" id=5]
 
 [node name="Map" type="Node2D"]
 position = Vector2( -3, 3 )
@@ -18,3 +19,13 @@ stretch_mode = 1
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 795, 402 )
 script = ExtResource( 3 )
+
+[node name="NPC" type="ColorRect" parent="."]
+margin_right = 165.0
+margin_bottom = 135.0
+color = Color( 0.529412, 0.141176, 0.141176, 1 )
+
+[node name="WithSignals" parent="NPC" instance=ExtResource( 5 )]
+visible = false
+
+[connection signal="mouse_entered" from="NPC" to="NPC/WithSignals" method="StartStory"]

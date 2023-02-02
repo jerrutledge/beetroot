@@ -20,9 +20,6 @@ public class WithSignals : Control
         };
         timer.Connect("timeout", player, "Continue");
         AddChild(timer);
-
-        // Start the story
-        timer.Start();
     }
 
     public void OnStoryInkEnded()
@@ -55,5 +52,11 @@ public class WithSignals : Control
         container.CleanChoices();
         // Choose the clicked choice and continue onward
         player.ChooseChoiceIndexAndContinue(choiceIndex);
+    }
+
+    public void StartStory() {
+        GD.Print("anything");
+        timer.Start();
+        Visible = true;
     }
 }
