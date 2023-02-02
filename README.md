@@ -9,3 +9,4 @@
 ```ini
 inklecate_path = "C:/Path/To/Your/inklecate.exe"
 ```
+4. Build the Mono project
