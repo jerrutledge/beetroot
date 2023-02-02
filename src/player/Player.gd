@@ -1,5 +1,7 @@
 extends Area2D
 signal hit
+signal near_guy
+signal not_near_guy
 
 export var speed = 400 
 var screen_size
@@ -25,17 +27,28 @@ func _process(delta):
 		velocity.y -= 1
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += 1
-	
+
+
+
+
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 
 		
 	position += velocity * delta
 
-	
-	
-	
+
+
+
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
+
+func _on_Area2D_area_entered(area):
+	emit_signal("near_guy")
+	
+
+func _on_Area2D_area_exited(area):
+	emit_signal("not_near_guy")
