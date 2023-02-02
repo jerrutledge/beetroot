@@ -4,6 +4,7 @@ public class WithSignals : Control
 {
     private InkPlayer player;
     private StoryContainer container;
+    private BoxContainer choiceContainer;
 
     private Timer timer;
 
@@ -12,6 +13,7 @@ public class WithSignals : Control
         // Retrieve or create some Nodes we know we'll need quite often
         player = GetNode<InkPlayer>("InkPlayer");
         container = GetNode<StoryContainer>("Container");
+        choiceContainer = GetNode<BoxContainer>("ChoiceBox/MarginContainer/Choices");
         timer = new Timer()
         {
             Autostart = false,
@@ -41,10 +43,16 @@ public class WithSignals : Control
 
     public void OnStoryInkChoices(string[] choices)
     {
-        container.Add(container.CreateSeparation(), 0.2f);
+        // container.Add(container.CreateSeparation(), 0.2f);
         // Add a button for each choice
-        for (int i = 0; i < choices.Length; ++i)
-            container.Add(container.CreateChoice(choices[i], i), 0.4f);
+        if (choiceContainer == null) {
+            GD.Print("HELP");
+            return;
+        }
+        for (int i = 0; i < choices.Length; ++i) {
+            // container.Add(container.CreateChoice(choices[i], i), 0.4f);
+            choiceContainer.AddChild(container.CreateChoice(choices[i], i));
+        }
     }
 
     protected void OnChoiceClick(int choiceIndex)
@@ -55,7 +63,6 @@ public class WithSignals : Control
     }
 
     public void StartStory() {
-        GD.Print("anything");
         timer.Start();
         Visible = true;
     }
