@@ -34,3 +34,7 @@ texture = SubResource( 1 )
 polygon = PoolVector2Array( 353, -166, 381, -166, 367, -145 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Options" type="Panel" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0

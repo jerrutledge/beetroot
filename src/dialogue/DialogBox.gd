@@ -4,6 +4,8 @@ export var dialogPath = ""
 
 export(float) var textSpeed = 0.05
 
+onready var options = $Options
+
 var player = null
 var finished = false
 
@@ -47,16 +49,31 @@ func _on_story_continued(text, _tags):
 	nextPhrase("Nobody", text)
 	
 func _on_story_choices(choices):
-	print_debug(choices)
-	pass
+	var i = 0
+	for choice in choices:
+		var new_button = Button.new()
+		new_button.connect("pressed", self, "_on_choice_click", [i])
+		new_button.text = choice
+		options.add_child(new_button)
+		i += 1
+
+func _on_choice_click(choicenum):
+	print_debug("choicenum")
+	for n in options.get_children():
+		options.remove_child(n)
+		n.queue_free()
+	var next_text = player.ChooseChoiceIndexAndContinue(choicenum);
+	nextPhrase("", next_text)
 
 func begin_dialog(ink_player):
+	if (player != null):
+		return
 	visible = true
 	print_debug("Dialog started...")
 	player = ink_player
 	# connect all signals
 	var _idc = ink_player.connect("InkChoices", self, "_on_story_choices")
 	_idc = ink_player.connect("InkContinued", self, "_on_story_continued")
-	#_idc = ink_player.connect("InkEnded", self, "_on_story_ink_ended")
+	_idc = ink_player.connect("InkEnded", self, "_on_story_ink_ended")
 	finished = false
 	ink_player.Continue()
