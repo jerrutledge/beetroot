@@ -5,6 +5,7 @@
 [sub_resource type="GradientTexture" id=1]
 
 [node name="DialogBox" type="ColorRect"]
+pause_mode = 1
 margin_left = 159.0
 margin_top = 341.0
 margin_right = 855.0
