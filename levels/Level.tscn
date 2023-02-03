@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/art/platforms/moving_platform.png" type="Texture" id=6]
 [ext_resource path="res://src/Level/ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Interactable/Lever.tscn" type="PackedScene" id=8]
-[ext_resource path="res://levels/AnimationSwitch.gd" type="Script" id=9]
+[ext_resource path="res://src/Interactable/AnimationSwitch.gd" type="Script" id=9]
 [ext_resource path="res://src/Objects/CoinManager.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
