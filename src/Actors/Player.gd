@@ -20,6 +20,7 @@ var base_jumps = 200
 var jumps_remaining = 0
 var interactable_list = []
 var gliding = false
+var running = false
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
@@ -57,16 +58,35 @@ func _physics_process(_delta):
 			sound_jump.play()
 			jump = true
 			jumps_remaining -= 1
-
+	
+	
+	
 	var direction = get_direction(jump)
-
+	
+	running = Input.is_action_pressed("run")
+	
 	var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
+	
+	if running:
+		_velocity.x *= 2.0
 
 	var snap_vector = Vector2.ZERO
 	if direction.y == 0.0:
 		snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE
 	var is_on_platform = platform_detector.is_colliding()
+	
+	
+	if not is_on_floor():
+		if Input.is_action_just_pressed("glide"):
+			gliding = not gliding
+	else:
+		gliding = false
+	
+	#clamp the velocity to a fixed value
+	if gliding:
+		_velocity.y = 100.0
+	
 	_velocity = move_and_slide_with_snap(
 		_velocity, snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false
 	)
@@ -78,7 +98,9 @@ func _physics_process(_delta):
 			sprite.scale.x = abs(sprite.scale.x)
 		else:
 			sprite.scale.x = -abs(sprite.scale.x)
-
+	
+	
+	
 	# We use the sprite's scale to store Robi’s look direction which allows us to shoot
 	# bullets forward.
 	# There are many situations like these where you can reuse existing properties instead of
@@ -118,7 +140,7 @@ func calculate_move_velocity(
 	if is_jump_interrupted:
 		# Decrease the Y velocity by multiplying it, but don't set it to 0
 		# as to not be too abrupt.
-		velocity.y *= 0.6
+		velocity.y *= 1.0
 	return velocity
 
 
