@@ -34,7 +34,6 @@ grow_vertical = 0
 
 [node name="Choices" type="VBoxContainer" parent="ChoiceBox/MarginContainer"]
 
-[connection signal="ChoiceClick" from="Container" to="." method="OnChoiceClick"]
 [connection signal="InkChoices" from="InkPlayer" to="." method="OnStoryInkChoices"]
 [connection signal="InkContinued" from="InkPlayer" to="." method="OnStoryInkContinued"]
 [connection signal="InkEnded" from="InkPlayer" to="." method="OnStoryInkEnded"]

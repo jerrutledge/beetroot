@@ -6,6 +6,7 @@ extends Node
 # The "_" prefix is a convention to indicate that variables are private,
 # that is to say, another node or script should not access them.
 onready var _pause_menu = $InterfaceLayer/PauseMenu
+onready var _dialog_box = $DialogueLayer/DialogBox
 
 var player_scene = preload("res://src/Actors/Player.tscn")
 var _level_node = null
@@ -86,3 +87,6 @@ func is_coin_id_valid(coin_id):
 		else:
 			print_debug(_level_node.name + " not in coin dict")
 			return true
+
+func _on_begin_dialogue(ink_player):
+	_dialog_box.begin_dialog(ink_player)

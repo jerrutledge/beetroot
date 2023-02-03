@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/art/tileset/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Objects/portal.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/Interactable/Lever.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Interactable/AnimationSwitch.gd" type="Script" id=9]
 [ext_resource path="res://src/Objects/CoinManager.gd" type="Script" id=10]
+[ext_resource path="res://src/Interactable/NPC.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "move"
@@ -282,5 +283,8 @@ new_level_player_spawn = Vector2( 0, 80 )
 
 [node name="Lever" parent="." instance=ExtResource( 8 )]
 position = Vector2( 113, 45 )
+
+[node name="NPC" parent="." instance=ExtResource( 11 )]
+position = Vector2( -113, 21 )
 
 [connection signal="on_interacted" from="Lever" to="Platforms/Platform2/AnimationPlayer" method="toggle_animation"]
