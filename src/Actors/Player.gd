@@ -19,6 +19,7 @@ var trampoline_flag = 0
 var base_jumps = 200
 var jumps_remaining = 0
 var interactable_list = []
+var gliding = false
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
