@@ -12,6 +12,7 @@ var finished = false
 func _ready():
 	$Timer.wait_time = textSpeed
 	visible = false
+	$Name.text = ""
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -46,8 +47,11 @@ func _on_story_ink_ended():
 	player = null
 
 func _on_story_continued(text, tags):
-	print(tags)
-	nextPhrase("Nobody", text)
+	print_debug(tags.size())
+	var text_name = ""
+	if tags.size() > 0:
+		text_name = tags[0]
+	nextPhrase(text_name, text)
 	
 func _on_story_choices(choices):
 	var i = 0
@@ -59,7 +63,6 @@ func _on_story_choices(choices):
 		i += 1
 
 func _on_choice_click(choicenum):
-	print_debug("choicenum")
 	for n in options.get_children():
 		options.remove_child(n)
 		n.queue_free()
