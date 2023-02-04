@@ -41,7 +41,7 @@ func _on_story_ink_ended():
 	# disconnect all signals
 	var _idc = player.disconnect("InkChoices", self, "_on_story_choices")
 	_idc = player.disconnect("InkContinued", self, "_on_story_continued")
-	#_idc = player.disconnect("InkEnded", self, "_on_story_ink_ended")
+	_idc = player.disconnect("InkEnded", self, "_on_story_ink_ended")
 	player.LoadStory()
 	player = null
 
