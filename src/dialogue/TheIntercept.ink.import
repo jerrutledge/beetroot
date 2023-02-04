@@ -1,0 +1,15 @@
+[remap]
+
+importer="ink"
+type="Resource"
+path="res://.import/TheIntercept.ink-5aa6712af6645fbc21a1364e1ffd00e2.res"
+
+[deps]
+
+source_file="res://src/dialogue/TheIntercept.ink"
+dest_files=[ "res://.import/TheIntercept.ink-5aa6712af6645fbc21a1364e1ffd00e2.res" ]
+
+[params]
+
+is_master_file=true
+compress=true
