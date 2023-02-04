@@ -144,7 +144,7 @@ func calculate_move_velocity(
 	return velocity
 
 
-func get_new_animation(is_shooting = false):
+func get_new_animation(_is_shooting = false):
 	var animation_new = ""
 	if is_on_floor():
 		if abs(_velocity.x) > 0.1:

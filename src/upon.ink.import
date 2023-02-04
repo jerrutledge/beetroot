@@ -1,0 +1,15 @@
+[remap]
+
+importer="ink"
+type="Resource"
+path="res://.import/upon.ink-a9558756292b548b85147c60c78f59a2.res"
+
+[deps]
+
+source_file="res://src/upon.ink"
+dest_files=[ "res://.import/upon.ink-a9558756292b548b85147c60c78f59a2.res" ]
+
+[params]
+
+is_master_file=true
+compress=true
