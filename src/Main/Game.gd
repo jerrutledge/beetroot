@@ -14,8 +14,8 @@ var _level_node = null
 # of the coin ids that have already been collected e.g. "Grass": [0, 3]
 var _coin_dict = {}
 
-export(String) var starting_level_name = "Level"
-export(Vector2) var starting_level_player_position = Vector2(0, 0)
+export(String) var starting_level_name = "Level1"
+export(Vector2) var starting_level_player_position = Vector2(136, 560)
 
 func _init(): #object in memory
 	OS.min_window_size = OS.window_size
