@@ -1,31 +1,25 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/art/player/frames/Character_5.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/player/frames/walking/frame_6.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/art/player/frames/Character_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/player/frames/walking/frame_0.png" type="Texture" id=4]
 [ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
-[ext_resource path="res://assets/art/player/frames/Character_0.png" type="Texture" id=9]
-[ext_resource path="res://assets/art/player/frames/Character_1.png" type="Texture" id=10]
-[ext_resource path="res://assets/art/player/frames/Character_3.png" type="Texture" id=11]
-[ext_resource path="res://assets/art/player/frames/Character_4.png" type="Texture" id=12]
-[ext_resource path="res://assets/art/player/frames/Character_6.png" type="Texture" id=13]
-[ext_resource path="res://assets/art/player/frames/Character_7.png" type="Texture" id=14]
-[ext_resource path="res://assets/art/player/frames/Character_8.png" type="Texture" id=15]
-[ext_resource path="res://assets/art/player/frames/Character_9.png" type="Texture" id=16]
-[ext_resource path="res://assets/art/player/frames/Character_10.png" type="Texture" id=17]
-[ext_resource path="res://assets/art/player/frames/Character_11.png" type="Texture" id=18]
-[ext_resource path="res://assets/art/player/frames/Character_12.png" type="Texture" id=19]
-[ext_resource path="res://assets/art/player/frames/Character_13.png" type="Texture" id=20]
+[ext_resource path="res://assets/art/player/frames/walking/frame_1.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/player/frames/walking/frame_7.png" type="Texture" id=10]
+[ext_resource path="res://assets/art/player/frames/walking/frame_2.png" type="Texture" id=11]
+[ext_resource path="res://assets/art/player/frames/walking/frame_3.png" type="Texture" id=12]
+[ext_resource path="res://assets/art/player/frames/walking/frame_4.png" type="Texture" id=13]
+[ext_resource path="res://assets/art/player/frames/walking/frame_5.png" type="Texture" id=14]
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "default",
+"name": "Shroom",
 "speed": 5.0
 } ]
 
@@ -43,7 +37,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
+"update": 0,
 "values": [ 22 ]
 }
 
@@ -61,7 +55,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
+"update": 0,
 "values": [ 21 ]
 }
 
@@ -78,7 +72,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1.25, 1.5, 2, 4.5, 4.75, 5, 5.25 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ 16, 17, 18, 16, 19, 20, 19, 16 ]
 }
 
@@ -95,12 +89,12 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ 23, 24, 23 ]
 }
 
 [sub_resource type="Animation" id=8]
-length = 3.5
+length = 2.0
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -110,10 +104,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0 ]
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 }
 
 [sub_resource type="RectangleShape2D" id=11]
@@ -122,6 +116,7 @@ extents = Vector2( 21, 32 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 30
 script = ExtResource( 1 )
+speed = Vector2( 300, 1000 )
 
 [node name="ShootAnimation" type="Timer" parent="."]
 process_mode = 0
@@ -134,9 +129,11 @@ cast_to = Vector2( 0, 6 )
 collision_mask = 8
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -34 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 0, -38 )
+scale = Vector2( 0.0434122, 0.0434122 )
 frames = SubResource( 12 )
+animation = "Shroom"
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
