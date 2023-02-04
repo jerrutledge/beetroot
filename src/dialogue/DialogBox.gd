@@ -42,10 +42,11 @@ func _on_story_ink_ended():
 	var _idc = player.disconnect("InkChoices", self, "_on_story_choices")
 	_idc = player.disconnect("InkContinued", self, "_on_story_continued")
 	#_idc = player.disconnect("InkEnded", self, "_on_story_ink_ended")
+	player.LoadStory()
 	player = null
 
-func _on_story_continued(text, _tags):
-	print_debug(text)
+func _on_story_continued(text, tags):
+	print(tags)
 	nextPhrase("Nobody", text)
 	
 func _on_story_choices(choices):

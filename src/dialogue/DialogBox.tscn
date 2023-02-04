@@ -15,7 +15,7 @@ script = ExtResource( 1 )
 [node name="Name" type="RichTextLabel" parent="."]
 margin_left = 27.0
 margin_top = 15.0
-margin_right = 68.0
+margin_right = 302.0
 margin_bottom = 35.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "NAME"
@@ -35,6 +35,8 @@ polygon = PoolVector2Array( 353, -166, 381, -166, 367, -145 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Options" type="Panel" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Options" type="HBoxContainer" parent="."]
+margin_left = 9.0
+margin_top = -96.0
+margin_right = 640.0
+margin_bottom = -21.0
