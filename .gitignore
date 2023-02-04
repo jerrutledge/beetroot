@@ -18,3 +18,4 @@ mono_crash.*.json
 # General MacOS
 .DS_Store
 addons/paulloz.ink/override.cfg
+web.zip
