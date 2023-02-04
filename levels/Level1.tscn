@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/art/tileset/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=2]
 
 [node name="Level1" type="Node2D"]
 
@@ -8,4 +9,7 @@
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 131078, 8, 0, 131079, 8, 0, 196614, 0, 0, 196615, 10, 0, 196616, 10, 0, 262152, 7, 0, 262154, 7, 0, 262155, 7, 0, 327692, 2, 0, 393229, 2, 0 )
+tile_data = PoolIntArray( 131078, 8, 0, 131079, 8, 0, 196614, 0, 0, 196615, 10, 0, 196616, 10, 0, 262152, 7, 0, 262154, 7, 0, 262155, 7, 0, 327692, 2, 0, 393229, 2, 0, 589827, 8, 0, 655363, 8, 0, 720899, 8, 0, 786435, 8, 0, 851971, 8, 0, 917507, 8, 0, 917508, 8, 0, 917509, 8, 0, 917510, 8, 0, 917511, 8, 0, 917512, 8, 0, 917513, 8, 0, 917514, 8, 0, 917515, 8, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 520, 331 )
