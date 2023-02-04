@@ -94,7 +94,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-length = 3.5
+length = 2.0
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -104,10 +104,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 }
 
 [sub_resource type="RectangleShape2D" id=11]
@@ -129,10 +129,11 @@ cast_to = Vector2( 0, 6 )
 collision_mask = 8
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -34 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 0, -38 )
+scale = Vector2( 0.0434122, 0.0434122 )
 frames = SubResource( 12 )
 animation = "Shroom"
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
