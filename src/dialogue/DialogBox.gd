@@ -15,6 +15,7 @@ var finished = false
 func _ready():
 	$Timer.wait_time = textSpeed
 	visible = false
+	$Control/CanvasLayer.visible = false
 	$Name.text = ""
 	
 func _process(_delta):
@@ -41,6 +42,7 @@ func nextPhrase(name, text):
 
 func _on_story_ink_ended():
 	visible = false
+	$Control/CanvasLayer.visible = false
 	print_debug("Dialog finished.")
 	# disconnect all signals
 	var tree = get_tree()
@@ -84,6 +86,7 @@ func begin_dialog(ink_player, _npc, start):
 	if (player != null):
 		return
 	visible = true
+	$Control/CanvasLayer.visible = true
 	print_debug("Dialog started...")
 	player = ink_player
 	player.ChoosePathString(start)
