@@ -73,6 +73,8 @@ func switch_level(level_name, new_level_player_spawn):
 	var player = player_scene.instance()
 	player.set_position(new_level_player_spawn)
 	player.connect("collect_coin", self, "_on_collect_coin")
+	_dialog_box.connect("dialog_start", player, "_on_dialog_start")
+	_dialog_box.connect("dialog_end", player, "_on_dialog_end")
 	_level_node.add_child(player)
 
 

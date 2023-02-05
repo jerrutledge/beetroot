@@ -1,5 +1,8 @@
 extends ColorRect
 
+signal dialog_start()
+signal dialog_end()
+
 export var dialogPath = ""
 
 export(float) var textSpeed = 0.05
@@ -42,6 +45,7 @@ func _on_story_ink_ended():
 	# disconnect all signals
 	var tree = get_tree()
 	tree.paused = false
+	emit_signal("dialog_end")
 	var _idc = player.disconnect("InkChoices", self, "_on_story_choices")
 	_idc = player.disconnect("InkContinued", self, "_on_story_continued")
 	_idc = player.disconnect("InkEnded", self, "_on_story_ink_ended")
@@ -83,7 +87,7 @@ func begin_dialog(ink_player, _npc, start):
 	print_debug("Dialog started...")
 	player = ink_player
 	player.ChoosePathString(start)
-	
+	emit_signal("dialog_start")
 	# connect all signals
 	var tree = get_tree()
 	tree.paused = true
