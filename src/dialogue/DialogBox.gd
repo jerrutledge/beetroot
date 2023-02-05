@@ -43,11 +43,10 @@ func _on_story_ink_ended():
 	var _idc = player.disconnect("InkChoices", self, "_on_story_choices")
 	_idc = player.disconnect("InkContinued", self, "_on_story_continued")
 	_idc = player.disconnect("InkEnded", self, "_on_story_ink_ended")
-	player.LoadStory()
 	player = null
 
 func _on_story_continued(text, tags):
-	print_debug(tags.size())
+	print_debug(player.GetState())
 	var text_name = ""
 	if tags.size() > 0:
 		text_name = tags[0]
@@ -69,12 +68,14 @@ func _on_choice_click(choicenum):
 	var next_text = player.ChooseChoiceIndexAndContinue(choicenum);
 	nextPhrase("", next_text)
 
-func begin_dialog(ink_player):
+func begin_dialog(ink_player, _npc, start):
 	if (player != null):
 		return
 	visible = true
 	print_debug("Dialog started...")
 	player = ink_player
+	player.ChoosePathString(start)
+	
 	# connect all signals
 	var _idc = ink_player.connect("InkChoices", self, "_on_story_choices")
 	_idc = ink_player.connect("InkContinued", self, "_on_story_continued")

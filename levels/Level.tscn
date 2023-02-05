@@ -304,6 +304,7 @@ new_level_player_spawn = Vector2( 0, 80 )
 [node name="NPC" parent="." instance=ExtResource( 11 )]
 position = Vector2( 167, -49 )
 outline_width = 24
+start = "gene_interaction_1_start.0.0"
 
 [node name="Sprite" parent="NPC" index="0"]
 material = SubResource( 3 )
