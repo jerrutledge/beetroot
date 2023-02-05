@@ -69,7 +69,7 @@ region_rect = Rect2( 0, 0, 2048, 2048 )
 
 [node name="StaticBG" type="ParallaxLayer" parent="."]
 position = Vector2( 0, -200 )
-motion_scale = Vector2( 0.1, 0.05 )
+motion_scale = Vector2( 0.1, 0.08 )
 motion_mirroring = Vector2( 1080, 0 )
 
 [node name="Sprite" type="Sprite" parent="StaticBG"]
