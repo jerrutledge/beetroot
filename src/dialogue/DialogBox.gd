@@ -54,12 +54,18 @@ func _on_story_continued(text, tags):
 	
 func _on_story_choices(choices):
 	var i = 0
+	var first_button = null
 	for choice in choices:
 		var new_button = Button.new()
 		new_button.connect("pressed", self, "_on_choice_click", [i])
 		new_button.text = choice
 		options.add_child(new_button)
+		if i == 0:
+			first_button = new_button
 		i += 1
+	$Timer2.start()
+	yield($Timer2, "timeout")
+	first_button.grab_focus()
 
 func _on_choice_click(choicenum):
 	for n in options.get_children():
