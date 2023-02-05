@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Interactable/InteractableOutline.gdshader" type="Shader" id=1]
 [ext_resource path="res://assets/art/tileset/ground_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Interactable/NPC.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Level/ParallaxForest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/audio/music/Komiku_-_03_-_Mushrooms.mp3" type="AudioStream" id=5]
 [ext_resource path="res://addons/paulloz.ink/InkPlayer.cs" type="Script" id=10]
 [ext_resource path="res://src/stories/final_shroomie_gene.ink" type="Resource" id=11]
 [ext_resource path="res://assets/art/characters/eggplant.png" type="Texture" id=12]
@@ -73,5 +74,9 @@ text = "Press Space to talk "
 [node name="Background" type="CanvasLayer" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [editable path="NPC"]
