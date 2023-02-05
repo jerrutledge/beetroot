@@ -7,7 +7,7 @@
 [ext_resource path="res://src/Level/Level.gd" type="Script" id=5]
 [ext_resource path="res://assets/art/platforms/moving_platform.png" type="Texture" id=6]
 [ext_resource path="res://src/Level/ParallaxBackground.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/stories/Shroomie_gene_interaction_1_with_tags.ink" type="Resource" id=8]
+[ext_resource path="res://src/stories/final_shroomie_gene.ink" type="Resource" id=8]
 [ext_resource path="res://src/Interactable/AnimationSwitch.gd" type="Script" id=9]
 [ext_resource path="res://src/Objects/CoinManager.gd" type="Script" id=10]
 [ext_resource path="res://src/Interactable/NPC.tscn" type="PackedScene" id=11]
@@ -73,6 +73,7 @@ script = ExtResource( 5 )
 scale = Vector2( 1.25, 1.25 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
+show_collision = true
 collision_layer = 16
 collision_mask = 0
 format = 1

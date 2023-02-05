@@ -15,7 +15,8 @@ var _level_node = null
 var _coin_dict = {}
 
 export(String) var starting_level_name = "Level"
-export(Vector2) var starting_level_player_position = Vector2(0, 0)
+#export(Vector2) var starting_level_player_position = Vector2(136, 560)
+export(Vector2) var starting_level_player_position = Vector2(136, 560)
 
 func _init(): #object in memory
 	OS.min_window_size = OS.window_size
