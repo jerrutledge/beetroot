@@ -40,6 +40,8 @@ func _on_story_ink_ended():
 	visible = false
 	print_debug("Dialog finished.")
 	# disconnect all signals
+	var tree = get_tree()
+	tree.paused = false
 	var _idc = player.disconnect("InkChoices", self, "_on_story_choices")
 	_idc = player.disconnect("InkContinued", self, "_on_story_continued")
 	_idc = player.disconnect("InkEnded", self, "_on_story_ink_ended")
@@ -83,6 +85,9 @@ func begin_dialog(ink_player, _npc, start):
 	player.ChoosePathString(start)
 	
 	# connect all signals
+	var tree = get_tree()
+	tree.paused = true
+	
 	var _idc = ink_player.connect("InkChoices", self, "_on_story_choices")
 	_idc = ink_player.connect("InkContinued", self, "_on_story_continued")
 	_idc = ink_player.connect("InkEnded", self, "_on_story_ink_ended")
