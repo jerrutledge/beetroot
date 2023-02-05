@@ -148,7 +148,10 @@ func get_new_animation(_is_shooting = false):
 	var animation_new = ""
 	if is_on_floor():
 		if abs(_velocity.x) > 0.1:
-			animation_new = "run"
+			if running:
+				animation_new = "fastrun"
+			else:
+				animation_new = "run"
 		else:
 			animation_new = "idle"
 	else:
