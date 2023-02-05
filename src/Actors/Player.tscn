@@ -76,6 +76,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=13]
 resource_name = "fastrun"
 length = 0.8
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -188,7 +189,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-length = 1.75
+length = 2.0
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -198,10 +199,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0, 1, 2, 4, 5, 6, 7 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 7 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:offset")
@@ -217,7 +218,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 41, 54.25 )
+extents = Vector2( 31, 54.25 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 30
@@ -239,10 +240,9 @@ position = Vector2( 1, -58 )
 scale = Vector2( 0.0642737, 0.0642737 )
 frames = SubResource( 12 )
 animation = "Shroom"
-frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 2.6
+playback_speed = 1.93
 anims/crouch = SubResource( 1 )
 anims/falling = SubResource( 2 )
 anims/fastrun = SubResource( 13 )
@@ -257,7 +257,7 @@ current = true
 process_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -53.75 )
+position = Vector2( -2, -53.75 )
 shape = SubResource( 11 )
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
