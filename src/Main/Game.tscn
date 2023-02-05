@@ -7,6 +7,7 @@
 [node name="Game" type="Node"]
 pause_mode = 2
 script = ExtResource( 2 )
+starting_level_name = "Level1"
 
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 layer = 100
