@@ -64,6 +64,7 @@ pause_mode = 2
 position = Vector2( -54.3999, -33 )
 scale = Vector2( 0.3, 0.3 )
 normal = ExtResource( 2 )
+passby_press = true
 action = "interact"
 
 [node name="Polygon2D" type="Polygon2D" parent="Control/TouchScreenButton"]
