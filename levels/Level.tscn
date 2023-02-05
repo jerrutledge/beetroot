@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/art/tileset/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Objects/portal.tscn" type="PackedScene" id=2]
@@ -7,12 +7,13 @@
 [ext_resource path="res://src/Level/Level.gd" type="Script" id=5]
 [ext_resource path="res://assets/art/platforms/moving_platform.png" type="Texture" id=6]
 [ext_resource path="res://src/Level/ParallaxBackground.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/Interactable/Lever.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/stories/Shroomie_gene_interaction_1_with_tags.ink" type="Resource" id=8]
 [ext_resource path="res://src/Interactable/AnimationSwitch.gd" type="Script" id=9]
 [ext_resource path="res://src/Objects/CoinManager.gd" type="Script" id=10]
 [ext_resource path="res://src/Interactable/NPC.tscn" type="PackedScene" id=11]
 [ext_resource path="res://addons/paulloz.ink/InkPlayer.cs" type="Script" id=12]
-[ext_resource path="res://src/stories/Shroomie_gene_interaction_1.ink" type="Resource" id=13]
+[ext_resource path="res://assets/art/characters/eggplant.png" type="Texture" id=14]
+[ext_resource path="res://src/Interactable/InteractableOutline.gdshader" type="Shader" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "move"
@@ -46,6 +47,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( -47, 80 ), Vector2( -47, 407 ) ]
 }
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 15 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 0.0
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Level" type="Node2D"]
 pause_mode = 1
@@ -283,15 +301,18 @@ polygon = PoolVector2Array( -129.699, 9.94633, -47, -10.5, 8, -7, 10, -1.5, -46.
 position = Vector2( 111, 460 )
 new_level_player_spawn = Vector2( 0, 80 )
 
-[node name="Lever" parent="." instance=ExtResource( 8 )]
-position = Vector2( 113, 45 )
-
 [node name="NPC" parent="." instance=ExtResource( 11 )]
-position = Vector2( -113, 21 )
+position = Vector2( 167, -49 )
+outline_width = 24
+start = "gene_interaction_1_start.0.0"
+
+[node name="Sprite" parent="NPC" index="0"]
+material = SubResource( 3 )
+frames = SubResource( 4 )
 
 [node name="InkPlayer" type="Node" parent="NPC"]
 script = ExtResource( 12 )
 autoLoadStory = true
-story = ExtResource( 13 )
+story = ExtResource( 8 )
 
-[connection signal="on_interacted" from="Lever" to="Platforms/Platform2/AnimationPlayer" method="toggle_animation"]
+[editable path="NPC"]
