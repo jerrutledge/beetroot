@@ -16,7 +16,7 @@ onready var sprite = $Sprite
 onready var sound_jump = $Jump
 
 var trampoline_flag = 0
-var base_jumps = 200
+var base_jumps = 1
 var jumps_remaining = 0
 var interactable_list = []
 var gliding = false
