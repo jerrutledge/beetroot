@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/frames/walking/frame_6.png" type="Texture" id=2]
@@ -14,9 +14,28 @@
 [ext_resource path="res://assets/art/player/frames/walking/frame_3.png" type="Texture" id=12]
 [ext_resource path="res://assets/art/player/frames/walking/frame_4.png" type="Texture" id=13]
 [ext_resource path="res://assets/art/player/frames/walking/frame_5.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/player/frames/glide/frame_0.png" type="Texture" id=15]
+[ext_resource path="res://assets/art/player/frames/jump/frame_2.png" type="Texture" id=16]
+[ext_resource path="res://assets/art/player/frames/jump/frame_4.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/player/frames/jump/frame_1.png" type="Texture" id=18]
+[ext_resource path="res://assets/art/player/frames/jump/frame_5.png" type="Texture" id=19]
+[ext_resource path="res://assets/art/player/frames/jump/frame_6.png" type="Texture" id=20]
+[ext_resource path="res://assets/art/player/frames/glide/frame_1.png" type="Texture" id=21]
+[ext_resource path="res://assets/art/player/frames/jump/frame_3.png" type="Texture" id=22]
+[ext_resource path="res://assets/art/player/frames/jump/frame_0.png" type="Texture" id=23]
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "Glide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 22 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 4 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Shroom",
@@ -73,6 +92,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "glide"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 6 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -148,13 +183,15 @@ collision_mask = 8
 position = Vector2( 9.53674e-07, -58 )
 scale = Vector2( 0.0642737, 0.0642737 )
 frames = SubResource( 12 )
-animation = "Shroom"
+animation = "Jump"
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
 anims/crouch = SubResource( 1 )
 anims/falling = SubResource( 2 )
 anims/fastrun = SubResource( 13 )
+anims/glide = SubResource( 14 )
 anims/idle = SubResource( 4 )
 anims/jumping = SubResource( 6 )
 anims/run = SubResource( 8 )
