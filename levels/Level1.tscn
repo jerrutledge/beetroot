@@ -1,181 +1,16 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://assets/art/tileset/grass/small-side-ground.png" type="Texture" id=1]
-[ext_resource path="res://src/Interactable/InteractableOutline.gdshader" type="Shader" id=2]
+[ext_resource path="res://src/Interactable/InteractableOutline.gdshader" type="Shader" id=1]
+[ext_resource path="res://assets/art/tileset/ground_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Interactable/NPC.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/art/tileset/grass/small-water.png" type="Texture" id=4]
-[ext_resource path="res://assets/art/tileset/grass/small-water-exit.png" type="Texture" id=5]
-[ext_resource path="res://assets/art/tileset/grass/small-land.png" type="Texture" id=6]
-[ext_resource path="res://assets/art/tileset/grass/small-ground.png" type="Texture" id=7]
-[ext_resource path="res://assets/art/tileset/grass/small-underground.png" type="Texture" id=8]
-[ext_resource path="res://assets/art/tileset/grass/small-water-enter.png" type="Texture" id=9]
+[ext_resource path="res://src/Level/ParallaxForest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/paulloz.ink/InkPlayer.cs" type="Script" id=10]
 [ext_resource path="res://src/stories/final_shroomie_gene.ink" type="Resource" id=11]
 [ext_resource path="res://assets/art/characters/eggplant.png" type="Texture" id=12]
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=13]
-points = PoolVector2Array( 0, 0, 64, 64, 0, 63 )
-
-[sub_resource type="ConvexPolygonShape2D" id=14]
-points = PoolVector2Array( 0, 64, 64, 0, 64, 64 )
-
-[sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
-
-[sub_resource type="TileSet" id=1]
-7/name = "small-ground.png 7"
-7/texture = ExtResource( 7 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 0, 0, 64, 64 )
-7/tile_mode = 0
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape = SubResource( 7 )
-7/shape_one_way = false
-7/shape_one_way_margin = 1.0
-7/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 7 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-7/z_index = 0
-8/name = "small-land.png 8"
-8/texture = ExtResource( 6 )
-8/tex_offset = Vector2( 0, 0 )
-8/modulate = Color( 1, 1, 1, 1 )
-8/region = Rect2( 0, 0, 64, 64 )
-8/tile_mode = 0
-8/occluder_offset = Vector2( 0, 0 )
-8/navigation_offset = Vector2( 0, 0 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape = SubResource( 8 )
-8/shape_one_way = false
-8/shape_one_way_margin = 1.0
-8/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 8 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-8/z_index = 0
-9/name = "small-side-ground.png 9"
-9/texture = ExtResource( 1 )
-9/tex_offset = Vector2( 0, 0 )
-9/modulate = Color( 1, 1, 1, 1 )
-9/region = Rect2( 0, 0, 64, 64 )
-9/tile_mode = 0
-9/occluder_offset = Vector2( 0, 0 )
-9/navigation_offset = Vector2( 0, 0 )
-9/shape_offset = Vector2( 0, 0 )
-9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-9/shape = SubResource( 9 )
-9/shape_one_way = false
-9/shape_one_way_margin = 1.0
-9/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 9 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-9/z_index = 0
-10/name = "small-underground.png 10"
-10/texture = ExtResource( 8 )
-10/tex_offset = Vector2( 0, 0 )
-10/modulate = Color( 1, 1, 1, 1 )
-10/region = Rect2( 0, 0, 64, 64 )
-10/tile_mode = 0
-10/occluder_offset = Vector2( 0, 0 )
-10/navigation_offset = Vector2( 0, 0 )
-10/shape_offset = Vector2( 0, 0 )
-10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-10/shape = SubResource( 6 )
-10/shape_one_way = false
-10/shape_one_way_margin = 1.0
-10/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 6 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-10/z_index = 0
-11/name = "small-water.png 11"
-11/texture = ExtResource( 4 )
-11/tex_offset = Vector2( 0, 0 )
-11/modulate = Color( 1, 1, 1, 1 )
-11/region = Rect2( 0, 0, 64, 64 )
-11/tile_mode = 0
-11/occluder_offset = Vector2( 0, 0 )
-11/navigation_offset = Vector2( 0, 0 )
-11/shape_offset = Vector2( 0, 0 )
-11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-11/shape_one_way = false
-11/shape_one_way_margin = 0.0
-11/shapes = [  ]
-11/z_index = 0
-12/name = "small-water-enter.png 12"
-12/texture = ExtResource( 9 )
-12/tex_offset = Vector2( 0, 0 )
-12/modulate = Color( 1, 1, 1, 1 )
-12/region = Rect2( 0, 0, 64, 64 )
-12/tile_mode = 0
-12/occluder_offset = Vector2( 0, 0 )
-12/navigation_offset = Vector2( 0, 0 )
-12/shape_offset = Vector2( 0, 0 )
-12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-12/shape = SubResource( 13 )
-12/shape_one_way = false
-12/shape_one_way_margin = 1.0
-12/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 13 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-12/z_index = 0
-13/name = "small-water-exit.png 13"
-13/texture = ExtResource( 5 )
-13/tex_offset = Vector2( 0, 0 )
-13/modulate = Color( 1, 1, 1, 1 )
-13/region = Rect2( 0, 0, 64, 64 )
-13/tile_mode = 0
-13/occluder_offset = Vector2( 0, 0 )
-13/navigation_offset = Vector2( 0, 0 )
-13/shape_offset = Vector2( 0, 0 )
-13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-13/shape = SubResource( 14 )
-13/shape_one_way = false
-13/shape_one_way_margin = 1.0
-13/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 14 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-13/z_index = 0
-
 [sub_resource type="ShaderMaterial" id=10]
 resource_local_to_scene = true
-shader = ExtResource( 2 )
+shader = ExtResource( 1 )
 shader_param/color = Color( 1, 1, 1, 1 )
 shader_param/width = 0.0
 shader_param/pattern = 0
@@ -194,9 +29,12 @@ animations = [ {
 radius = 259.048
 
 [node name="Level1" type="Node2D"]
+pause_mode = 1
+
+[node name="TreeParallaxBg" parent="." instance=ExtResource( 4 )]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+tile_set = ExtResource( 2 )
 collision_layer = 16
 collision_mask = 0
 format = 1
@@ -218,5 +56,9 @@ shape = SubResource( 12 )
 script = ExtResource( 10 )
 autoLoadStory = true
 story = ExtResource( 11 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 
 [editable path="NPC"]
