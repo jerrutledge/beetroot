@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShroomieJump105724.mp3-48354e2a1d810525cd0ade6e1a6cd014.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/ShroomieJump105724.mp3"
+dest_files=[ "res://.import/ShroomieJump105724.mp3-48354e2a1d810525cd0ade6e1a6cd014.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

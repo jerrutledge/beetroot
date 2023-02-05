@@ -15,8 +15,8 @@ var _level_node = null
 var _coin_dict = {}
 
 export(String) var starting_level_name = "Level"
-#export(Vector2) var starting_level_player_position = Vector2(136, 560)
-export(Vector2) var starting_level_player_position = Vector2(136, 0)
+export(Vector2) var starting_level_player_position = Vector2(136, 560)
+#export(Vector2) var starting_level_player_position = Vector2(136, 0)
 
 func _init(): #object in memory
 	OS.min_window_size = OS.window_size
@@ -73,6 +73,8 @@ func switch_level(level_name, new_level_player_spawn):
 	var player = player_scene.instance()
 	player.set_position(new_level_player_spawn)
 	player.connect("collect_coin", self, "_on_collect_coin")
+	_dialog_box.connect("dialog_start", player, "_on_dialog_start")
+	_dialog_box.connect("dialog_end", player, "_on_dialog_end")
 	_level_node.add_child(player)
 
 
