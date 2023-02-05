@@ -16,7 +16,7 @@ onready var sprite = $Sprite
 onready var sound_jump = $Jump
 
 var trampoline_flag = 0
-var base_jumps = 200
+var base_jumps = 1
 var jumps_remaining = 0
 var interactable_list = []
 var gliding = false
@@ -148,11 +148,16 @@ func get_new_animation(_is_shooting = false):
 	var animation_new = ""
 	if is_on_floor():
 		if abs(_velocity.x) > 0.1:
-			animation_new = "run"
+			if running:
+				animation_new = "fastrun"
+			else:
+				animation_new = "run"
 		else:
 			animation_new = "idle"
 	else:
-		if _velocity.y > 0:
+		if gliding:
+			animation_new = "glide"
+		elif _velocity.y > 0:
 			animation_new = "falling"
 		else:
 			animation_new = "jumping"

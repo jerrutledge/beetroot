@@ -15,7 +15,8 @@ var _level_node = null
 var _coin_dict = {}
 
 export(String) var starting_level_name = "Level"
-export(Vector2) var starting_level_player_position = Vector2(0, 0)
+#export(Vector2) var starting_level_player_position = Vector2(136, 560)
+export(Vector2) var starting_level_player_position = Vector2(136, 0)
 
 func _init(): #object in memory
 	OS.min_window_size = OS.window_size
@@ -43,6 +44,7 @@ func _unhandled_input(event):
 	# To see that, select GlobalControls, and scroll down to the Pause category
 	# in the inspector.
 	elif event.is_action_pressed("toggle_pause"):
+		if _dialog_box.visible: return
 		var tree = get_tree()
 		tree.paused = not tree.paused
 		if tree.paused:
@@ -88,5 +90,5 @@ func is_coin_id_valid(coin_id):
 			print_debug(_level_node.name + " not in coin dict")
 			return true
 
-func _on_begin_dialogue(ink_player):
-	_dialog_box.begin_dialog(ink_player)
+func _on_begin_dialogue(ink_player, npc, start):
+	_dialog_box.begin_dialog(ink_player, npc, start)

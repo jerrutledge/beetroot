@@ -28,14 +28,14 @@ LIST ShroomieKnows = gene_name
 * "'Sup?" 
 * "OI!"
 -(gene_interaction_1_loop_1) {"Argh! You scared the bleedin' seeds outta me. What's up, Shroomie?"|Gene eases back into the stream, letting the cool water bathe his body once more.|Gene eyes you warily.|Gene closes his eyes and enjoys the sensation of the current against his backside.|Gene scratches his belly.->gene_interaction_1_loop_1|->gene_interaction_1_middle}
-* "Is Shroomie... my name?"
-    "I dunno. Is it? I call all mushrooms I don't know Shroomie. Like 'Tatty' for 'taters.
+* "Is Shroomie... my name?"#Shroomie
+    "I dunno. Is it? I call all mushrooms I don't know Shroomie. Like 'Tatty' for 'taters." #Gene
     ->gene_interaction_1_loop_1
 * (bad_memory) "I don't know what's up[."]... I don't know much of anything." 
-    "Oh dear! Boozy night, was it? Don't worry, I'm sure it will all come flooding back to ya."
+    "Oh dear! Boozy night, was it? Don't worry, I'm sure it will all come flooding back to ya." #Gene
     ->gene_interaction_1_loop_1 
 * "Sorry for startling you."
-    "No bother. I was lost in my thoughts. I come here during the summer for my morning bathe, and usually there's not a soul to be found."
+    "No bother. I was lost in my thoughts. I come here during the summer for my morning bathe, and usually there's not a soul to be found."#Gene
     ->gene_interaction_1_loop_1
 * "Who are you?"
     "I'm Gene. My name means 'noble aristocrat', apparently. I'm taking the role very seriously, as you can see."
