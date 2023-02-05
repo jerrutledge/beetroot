@@ -4,6 +4,8 @@ extends Actor
 
 # warning-ignore:unused_signal
 signal collect_coin()
+signal dialog_start()
+signal dialog_end()
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
@@ -176,4 +178,7 @@ func _on_Interactable_exit(interactable_obj):
 	interactable_list.erase(interactable_obj)
 	print_debug(interactable_list)
 
-
+func _on_dialog_start():
+	$Camera.offset.x += 200
+func _on_dialog_end():
+	$Camera.offset.x -= 200
