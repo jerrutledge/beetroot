@@ -155,7 +155,9 @@ func get_new_animation(_is_shooting = false):
 		else:
 			animation_new = "idle"
 	else:
-		if _velocity.y > 0:
+		if gliding:
+			animation_new = "glide"
+		elif _velocity.y > 0:
 			animation_new = "falling"
 		else:
 			animation_new = "jumping"
