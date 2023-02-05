@@ -88,5 +88,5 @@ func is_coin_id_valid(coin_id):
 			print_debug(_level_node.name + " not in coin dict")
 			return true
 
-func _on_begin_dialogue(ink_player):
-	_dialog_box.begin_dialog(ink_player)
+func _on_begin_dialogue(ink_player, npc, start):
+	_dialog_box.begin_dialog(ink_player, npc, start)
