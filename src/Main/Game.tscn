@@ -16,3 +16,4 @@ layer = 100
 [node name="DialogueLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogBox" parent="DialogueLayer" instance=ExtResource( 3 )]
+pause_mode = 2
