@@ -61,6 +61,7 @@ enabled=PoolStringArray( "res://addons/paulloz.ink/plugin.cfg" )
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+theme/custom="res://assets/theme/new_ui_theme.tres"
 
 [input]
 
