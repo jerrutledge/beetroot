@@ -3,6 +3,9 @@
 [ext_resource path="res://src/dialogue/DialogBox.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/new_ui_theme.tres" type="Theme" id=3]
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 71.06
+
 [sub_resource type="GradientTexture" id=1]
 
 [node name="DialogBox" type="ColorRect"]
@@ -32,11 +35,6 @@ margin_bottom = 156.0
 theme = ExtResource( 3 )
 text = "Text"
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( 286, 329 )
-texture = SubResource( 1 )
-polygon = PoolVector2Array( 353, -166, 381, -166, 367, -145 )
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Options" type="VBoxContainer" parent="."]
@@ -48,3 +46,16 @@ grow_vertical = 0
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 alignment = 2
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( 582, 98 )
+shape = SubResource( 2 )
+action = "interact"
+
+[node name="Polygon2D" type="Polygon2D" parent="TouchScreenButton"]
+position = Vector2( -296, 231 )
+texture = SubResource( 1 )
+polygon = PoolVector2Array( 353, -166, 381, -166, 367, -145 )
