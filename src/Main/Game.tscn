@@ -8,6 +8,7 @@
 pause_mode = 2
 script = ExtResource( 2 )
 starting_level_name = "Level1"
+starting_level_player_position = Vector2( 4300, -90 )
 
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 layer = 100
