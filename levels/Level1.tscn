@@ -53,6 +53,9 @@ frames = SubResource( 11 )
 [node name="CollisionShape2D" parent="NPC" index="1"]
 shape = SubResource( 12 )
 
+[node name="AnimationPlayer" parent="NPC" index="2"]
+pause_mode = 2
+
 [node name="InkPlayer" type="Node" parent="NPC"]
 script = ExtResource( 10 )
 autoLoadStory = true
