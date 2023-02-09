@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Shroomed"
-run/main_scene="res://src/Main/Game.tscn"
+run/main_scene="res://src/UserInterface/TitleScreen.tscn"
 boot_splash/bg_color=Color( 0.509804, 0.188235, 0.447059, 1 )
 config/icon="res://icon.png"
 
@@ -75,6 +75,7 @@ enabled=PoolStringArray( "res://addons/paulloz.ink/plugin.cfg" )
 
 common/drop_mouse_on_gui_input_disabled=true
 theme/custom="res://assets/theme/new_ui_theme.tres"
+theme/custom_font="res://assets/theme/fonts/aleo_dynamicfont.tres"
 
 [input]
 
