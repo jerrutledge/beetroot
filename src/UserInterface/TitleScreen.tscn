@@ -36,20 +36,20 @@ margin_right = 79.0
 margin_bottom = 69.5
 
 [node name="Play" type="Button" parent="Control"]
-margin_right = 158.0
-margin_bottom = 37.0
+margin_right = 176.0
+margin_bottom = 55.0
 text = "Play"
 
 [node name="Load" type="Button" parent="Control"]
-margin_top = 51.0
-margin_right = 158.0
-margin_bottom = 88.0
+margin_top = 69.0
+margin_right = 176.0
+margin_bottom = 124.0
 text = "Load Game"
 
 [node name="Options" type="Button" parent="Control"]
-margin_top = 102.0
-margin_right = 158.0
-margin_bottom = 139.0
+margin_top = 138.0
+margin_right = 176.0
+margin_bottom = 193.0
 text = "Options"
 
 [connection signal="pressed" from="Control/Play" to="." method="start_game"]

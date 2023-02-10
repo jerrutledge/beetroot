@@ -33,7 +33,7 @@ radius = 259.048
 pause_mode = 1
 
 [node name="TreeParallaxBg" parent="." instance=ExtResource( 4 )]
-scroll_offset = Vector2( 0, -100 )
+scroll_offset = Vector2( 0, -3000 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -72,8 +72,12 @@ margin_bottom = 14.0
 text = "Press Space to talk "
 
 [node name="Background" type="CanvasLayer" parent="."]
+visible = false
+offset = Vector2( -500, 0 )
+transform = Transform2D( 1, 0, 0, 1, -500, 0 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
