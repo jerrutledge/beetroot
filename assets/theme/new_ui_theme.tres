@@ -4,6 +4,25 @@
 [ext_resource path="res://assets/theme/fonts/aleo_dynamicfont.tres" type="DynamicFont" id=2]
 
 [sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+border_color = Color( 0.733333, 0.152941, 0.87451, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+shadow_offset = Vector2( 2, 2 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 6
 border_width_top = 6
@@ -22,21 +41,8 @@ expand_margin_bottom = 5.0
 shadow_offset = Vector2( 2, 2 )
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.894118, 0.603922, 1, 1 )
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 5.0
-expand_margin_right = 5.0
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
-shadow_offset = Vector2( 2, 2 )
-anti_aliasing = false
-
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
+bg_color = Color( 0.788235, 0.407843, 0.882353, 1 )
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -54,7 +60,7 @@ expand_margin_bottom = 5.0
 
 [resource]
 Button/colors/font_color = Color( 0.192157, 0.192157, 0.192157, 1 )
-Button/colors/font_color_disabled = Color( 0.247059, 0.247059, 0.247059, 0.2 )
+Button/colors/font_color_disabled = Color( 0.247059, 0.247059, 0.247059, 0.423529 )
 Button/colors/font_color_focus = Color( 0, 0, 0, 1 )
 Button/colors/font_color_hover = Color( 0.392157, 0.254902, 0.52549, 1 )
 Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
