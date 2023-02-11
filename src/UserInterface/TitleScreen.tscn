@@ -43,13 +43,13 @@ texture = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="."]
 anchor_left = 0.5
-anchor_top = 0.6
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.6
+anchor_bottom = 0.5
 margin_left = -218.0
-margin_top = -205.0
+margin_top = -97.0
 margin_right = 218.0
-margin_bottom = 205.0
+margin_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -58,13 +58,13 @@ custom_styles/panel = SubResource( 4 )
 
 [node name="Control" type="VBoxContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 0.6
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.6
+anchor_bottom = 0.5
 margin_left = -168.0
-margin_top = -160.0
+margin_top = -52.0
 margin_right = 168.0
-margin_bottom = 160.0
+margin_bottom = 268.0
 custom_constants/separation = 25
 
 [node name="Play" type="Button" parent="Control"]
