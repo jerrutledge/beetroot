@@ -4,8 +4,6 @@ extends Actor
 
 # warning-ignore:unused_signal
 signal collect_coin()
-signal dialog_start()
-signal dialog_end()
 
 const FLOOR_DETECT_DISTANCE = 20.0
 

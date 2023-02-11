@@ -35,22 +35,22 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 22.0
+margin_top = 7.0
 margin_right = 300.0
-margin_bottom = 59.0
+margin_bottom = 44.0
 text = "Game Paused"
 align = 1
 valign = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 65.0
+margin_top = 50.0
 margin_right = 300.0
-margin_bottom = 85.0
+margin_bottom = 70.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="ResumeButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 margin_left = 60.0
-margin_top = 91.0
+margin_top = 76.0
 margin_right = 240.0
 margin_bottom = 131.0
 rect_min_size = Vector2( 180, 40 )
@@ -59,9 +59,9 @@ text = "Resume"
 
 [node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 margin_left = 60.0
-margin_top = 137.0
+margin_top = 149.0
 margin_right = 240.0
-margin_bottom = 177.0
+margin_bottom = 204.0
 rect_min_size = Vector2( 180, 40 )
 size_flags_horizontal = 4
 text = "Quit"

@@ -68,12 +68,12 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 2048 )
 
 [node name="StaticBG" type="ParallaxLayer" parent="."]
+modulate = Color( 0.705882, 0.67451, 1, 1 )
 position = Vector2( 0, -1000 )
 motion_scale = Vector2( 0.1, 0.08 )
 motion_mirroring = Vector2( 2160, 0 )
 
 [node name="Sprite" type="Sprite" parent="StaticBG"]
-modulate = Color( 0.631373, 1, 0.513726, 1 )
 position = Vector2( 0, -200 )
 texture = ExtResource( 10 )
 centered = false

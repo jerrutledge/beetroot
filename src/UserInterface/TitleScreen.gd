@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	$Control/Play.grab_focus()
+
 func start_game():
-	get_tree().change_scene("res://src/Main/Game.tscn")
+	var idc = get_tree().change_scene("res://src/Main/Game.tscn")
 
