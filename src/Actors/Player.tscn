@@ -295,3 +295,5 @@ scale = Vector2( 1.49157, 1.46265 )
 normal = ExtResource( 8 )
 action = "interact"
 visibility_mode = 1
+
+[node name="Tween" type="Tween" parent="."]

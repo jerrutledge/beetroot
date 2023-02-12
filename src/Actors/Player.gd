@@ -184,10 +184,17 @@ func _on_Interactable_exit(interactable_obj):
 
 func _on_dialog_start():
 	cutscene_start()
-	$Camera.offset.x += 200
+	tween_camera_pos(200, 0)
 func _on_dialog_end():
 	cutscene_end()
-	$Camera.offset.x -= 200
+	tween_camera_pos(0, 0)
+	
+func tween_camera_pos(end_x, end_y):
+	var tween = $Tween
+	tween.remove_all()
+	tween.interpolate_property($Camera, "offset", 
+		null, Vector2(end_x, end_y), 0.6)
+	tween.start()
 
 func cutscene_start():
 	cutscene = true
