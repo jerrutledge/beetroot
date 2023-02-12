@@ -21,6 +21,7 @@ var jumps_remaining = 0
 var interactable_list = []
 var gliding = false
 var running = false
+var cutscene
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
@@ -28,6 +29,9 @@ func _ready():
 	camera.custom_viewport = $"../.."
 	yield(get_tree(), "idle_frame")
 	camera.make_current()
+	add_to_group("current_player")
+	
+	cutscene = false
 
 # Physics process is a built-in loop in Godot.
 # If you define _physics_process on a node, Godot will call it every frame.
@@ -48,44 +52,44 @@ func _ready():
 # - If you split the character into a state machine or more advanced pattern,
 #   you can easily move individual functions.
 func _physics_process(_delta):
-	if is_on_floor():
-		jumps_remaining = base_jumps
+	var direction = Vector2.ZERO
+	if cutscene:
+		_velocity.x = 0
+	else:
+		if is_on_floor():
+			jumps_remaining = base_jumps
+		var jump = false
+		if Input.is_action_just_pressed("jump" + action_suffix):
+			if is_on_floor() or jumps_remaining > 0:
+				# Play jump sound
+				sound_jump.play()
+				jump = true
+				jumps_remaining -= 1
+		
+		direction = get_direction(jump)
+		
+		running = Input.is_action_pressed("run")
+		
+		var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
+		_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
+		
+		if running:
+			_velocity.x *= 2.0
+			
+		if not is_on_floor():
+			if Input.is_action_just_pressed("glide"):
+				gliding = not gliding
+		else:
+			gliding = false
 	
-	var jump = false
-	if Input.is_action_just_pressed("jump" + action_suffix):
-		if is_on_floor() or jumps_remaining > 0:
-			# Play jump sound
-			sound_jump.play()
-			jump = true
-			jumps_remaining -= 1
-	
-	
-	
-	var direction = get_direction(jump)
-	
-	running = Input.is_action_pressed("run")
-	
-	var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
-	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
-	
-	if running:
-		_velocity.x *= 2.0
+	#clamp the velocity to a fixed value
+	if gliding:
+		_velocity.y = 100.0
 
 	var snap_vector = Vector2.ZERO
 	if direction.y == 0.0:
 		snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE
 	var is_on_platform = platform_detector.is_colliding()
-	
-	
-	if not is_on_floor():
-		if Input.is_action_just_pressed("glide"):
-			gliding = not gliding
-	else:
-		gliding = false
-	
-	#clamp the velocity to a fixed value
-	if gliding:
-		_velocity.y = 100.0
 	
 	_velocity = move_and_slide_with_snap(
 		_velocity, snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false
@@ -111,6 +115,8 @@ func _physics_process(_delta):
 		animation_player.play(animation)
 
 func _input(event):
+	if cutscene:
+		return
 	if event.is_action_pressed("interact") && interactable_list.size() > 0:
 		interactable_list[-1].interact()
 
@@ -177,6 +183,13 @@ func _on_Interactable_exit(interactable_obj):
 	print_debug(interactable_list)
 
 func _on_dialog_start():
+	cutscene_start()
 	$Camera.offset.x += 200
 func _on_dialog_end():
+	cutscene_end()
 	$Camera.offset.x -= 200
+
+func cutscene_start():
+	cutscene = true
+func cutscene_end():
+	cutscene = false
