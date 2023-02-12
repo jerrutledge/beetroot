@@ -7,13 +7,13 @@ signal collect_coin()
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
-export(String) var action_suffix = ""
+@export var action_suffix: String = ""
 
-onready var platform_detector = $PlatformDetector
-onready var animation_player = $AnimationPlayer
-onready var shoot_timer = $ShootAnimation
-onready var sprite = $Sprite
-onready var sound_jump = $Jump
+@onready var platform_detector = $PlatformDetector
+@onready var animation_player = $AnimationPlayer
+@onready var shoot_timer = $ShootAnimation
+@onready var sprite = $Sprite2D
+@onready var sound_jump = $Jump
 
 var trampoline_flag = 0
 var base_jumps = 1
@@ -25,16 +25,16 @@ var cutscene
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
-	var camera: Camera2D = $Camera
+	var camera: Camera2D = $Camera3D
 	camera.custom_viewport = $"../.."
-	yield(get_tree(), "idle_frame")
+	await get_tree().idle_frame
 	camera.make_current()
 	add_to_group("current_player")
 	
 	cutscene = false
 
 # Physics process is a built-in loop in Godot.
-# If you define _physics_process on a node, Godot will call it every frame.
+# If you define _physics_process checked a node, Godot will call it every frame.
 
 # We use separate functions to calculate the direction and velocity to make this one easier to read.
 # At a glance, you can see that the physics process loop:
@@ -46,7 +46,7 @@ func _ready():
 # 6. Updates the animation.
 
 # Splitting the physics process logic into functions not only makes it
-# easier to read, it help to change or improve the code later on:
+# easier to read, it help to change or improve the code later checked:
 # - If you need to change a calculation, you can use Go To -> Function
 #   (Ctrl Alt F) to quickly jump to the corresponding function.
 # - If you split the character into a state machine or more advanced pattern,
@@ -95,8 +95,8 @@ func _physics_process(_delta):
 		_velocity, snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false
 	)
 
-	# When the character’s direction changes, we want to to scale the Sprite accordingly to flip it.
-	# This will make Robi face left or right depending on the direction you move.
+	# When the character’s direction changes, we want to to scale the Sprite2D accordingly to flip it.
+	# This will make Robi face left or right depending checked the direction you move.
 	if direction.x != 0:
 		if direction.x > 0:
 			sprite.scale.x = abs(sprite.scale.x)
@@ -192,7 +192,7 @@ func _on_dialog_end():
 func tween_camera_pos(end_x, end_y):
 	var tween = $Tween
 	tween.remove_all()
-	tween.interpolate_property($Camera, "offset", 
+	tween.interpolate_property($Camera3D, "offset", 
 		null, Vector2(end_x, end_y), 0.6)
 	tween.start()
 

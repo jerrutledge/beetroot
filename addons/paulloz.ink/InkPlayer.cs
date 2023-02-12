@@ -5,7 +5,7 @@ using System.Collections.Generic;
 #if TOOLS
 [Tool]
 #endif
-public class InkPlayer : Node
+public partial class InkPlayer : Node
 {
 	private bool shouldMarshallVariables = false;
 
@@ -267,7 +267,7 @@ public class InkPlayer : Node
 		{
 			Godot.Collections.Array connections = GetSignalConnectionList(signalName);
 			foreach (Godot.Collections.Dictionary connection in connections)
-				Disconnect(signalName, connection["target"] as Godot.Object, connection["method"] as string);
+				Disconnect(signalName,new Callable(connection["target"] as Godot.Object,connection["method"] as string));
 			// Seems like there's no way to undo `AddUserSignal` so we're just going to unbind everything :/
 		}
 
@@ -275,7 +275,7 @@ public class InkPlayer : Node
 
 		if (!clear) return;
 
-		observedVariables.Remove(name);
+		observedVariables.RemoveAt(name);
 	}
 
 	public void RemoveVariableObserver(string name)
@@ -410,7 +410,7 @@ public class InkPlayer : Node
 		if (!file.IsOpen()) return;
 
 		file.Seek(0);
-		if (file.GetLen() > 0)
+		if (file.GetLength() > 0)
 			inkStory.state.LoadJson(file.GetAsText());
 	}
 

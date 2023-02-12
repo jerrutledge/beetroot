@@ -1,31 +1,31 @@
-tool
+@tool
 extends EditorImportPlugin
 
-func get_importer_name() -> String:
+func _get_importer_name() -> String:
 	return "ink";
 
-func get_visible_name() -> String:
+func _get_visible_name() -> String:
 	return "Ink story";
 
-func get_recognized_extensions() -> Array:
+func _get_recognized_extensions() -> Array:
 	return [ "json", "ink" ];
 
-func get_save_extension() -> String:
+func _get_save_extension() -> String:
 	return "res";
 
-func get_resource_type() -> String:
+func _get_resource_type() -> String:
 	return "Resource";
 
-func get_import_options(preset: int) -> Array:
+func _get_import_options(preset: int) -> Array:
 	return [
 		{"name": "is_master_file", "default_value": true},
 		{"name": "compress", "default_value": true}
 	]
 
-func get_option_visibility(option: String, options: Dictionary) -> bool:
+func _get_option_visibility(option: String, options: Dictionary) -> bool:
 	return true
 
-func get_preset_count() -> int:
+func _get_preset_count() -> int:
 	return 0
 
 func import(source_file: String, save_path: String, options: Dictionary, r_platform_variants: Array, r_gen_files: Array) -> int:
@@ -72,13 +72,15 @@ func import_from_ink(source_file: String, save_path: String, options: Dictionary
 		return ERR_FILE_UNRECOGNIZED
 	var ret: int = import_from_json(new_file, save_path, options)
 
-	Directory.new().remove(new_file)
+	Directory.new().remove_at(new_file)
 	return ret
 
 func import_from_json(source_file: String, save_path: String, options: Dictionary) -> int:
 	var raw_content: String = get_source_file_content(source_file)
 
-	var parsed_content: Dictionary = parse_json(raw_content)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(raw_content)
+	var parsed_content: Dictionary = test_json_conv.get_data()
 	if !parsed_content.has("inkVersion"):
 		return ERR_FILE_UNRECOGNIZED
 
@@ -100,7 +102,7 @@ func get_source_file_content(source_file: String) -> String:
 
 func _save_resource(save_path: String, resource: Resource, options: Dictionary):
 	var flags: int = ResourceSaver.FLAG_COMPRESS if options["compress"] else 0
-	return ResourceSaver.save("%s.%s" % [save_path, get_save_extension()], resource, flags)
+	return ResourceSaver.save("%s.%s" % [save_path, _get_save_extension()], resource, flags)
 
 func _fetch_inklecate() -> String:
 	var inklecate_setting: String = "ink/inklecate_path"

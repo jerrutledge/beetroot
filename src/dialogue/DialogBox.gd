@@ -3,11 +3,11 @@ extends ColorRect
 signal dialog_start()
 signal dialog_end()
 
-export var dialogPath = ""
+@export var dialogPath = ""
 
-export(float) var textSpeed = 0.05
+@export var textSpeed: float = 0.05
 
-onready var options = $Options
+@onready var options = $Options
 
 var player = null
 var finished = false
@@ -34,7 +34,7 @@ func nextPhrase(name, text):
 		$Text.visible_characters += 1
 		
 		$Timer.start()
-		yield($Timer, "timeout")
+		await $Timer.timeout
 		
 	finished = true
 	return
@@ -44,9 +44,9 @@ func _on_story_ink_ended():
 	print_debug("Dialog finished.")
 	# disconnect all signals
 	emit_signal("dialog_end")
-	var _idc = player.disconnect("InkChoices", self, "_on_story_choices")
-	_idc = player.disconnect("InkContinued", self, "_on_story_continued")
-	_idc = player.disconnect("InkEnded", self, "_on_story_ink_ended")
+	var _idc = player.disconnect("InkChoices",Callable(self,"_on_story_choices"))
+	_idc = player.disconnect("InkContinued",Callable(self,"_on_story_continued"))
+	_idc = player.disconnect("InkEnded",Callable(self,"_on_story_ink_ended"))
 	player = null
 
 func _on_story_continued(text, tags):
@@ -61,14 +61,14 @@ func _on_story_choices(choices):
 	var first_button = null
 	for choice in choices:
 		var new_button = Button.new()
-		new_button.connect("pressed", self, "_on_choice_click", [i])
+		new_button.connect("pressed",Callable(self,"_on_choice_click").bind(i))
 		new_button.text = choice
 		options.add_child(new_button)
 		if i == 0:
 			first_button = new_button
 		i += 1
 	$Timer2.start()
-	yield($Timer2, "timeout")
+	await $Timer2.timeout
 	first_button.grab_focus()
 
 func _on_choice_click(choicenum):
@@ -87,8 +87,8 @@ func begin_dialog(ink_player, _npc, start):
 	player.ChoosePathString(start)
 	emit_signal("dialog_start")
 	# connect all signals
-	var _idc = ink_player.connect("InkChoices", self, "_on_story_choices")
-	_idc = ink_player.connect("InkContinued", self, "_on_story_continued")
-	_idc = ink_player.connect("InkEnded", self, "_on_story_ink_ended")
+	var _idc = ink_player.connect("InkChoices",Callable(self,"_on_story_choices"))
+	_idc = ink_player.connect("InkContinued",Callable(self,"_on_story_continued"))
+	_idc = ink_player.connect("InkEnded",Callable(self,"_on_story_ink_ended"))
 	finished = false
 	ink_player.Continue()

@@ -3,7 +3,7 @@ using System;
 
 using GodotArray = Godot.Collections.Array;
 
-public class DialogBox : ColorRect
+public partial class DialogBox : ColorRect
 {
     [Signal]
     public delegate void ChoiceClick(int choiceIndex);

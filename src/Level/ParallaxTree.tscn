@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://assets/art/background/BG_tree-1.png" type="Texture" id=1]
-[ext_resource path="res://assets/art/background/BG_tilablemountain-2.png" type="Texture" id=2]
-[ext_resource path="res://assets/art/background/BG_tilablemountain-1.png" type="Texture" id=3]
-[ext_resource path="res://assets/art/background/BG_tree-2.png" type="Texture" id=4]
-[ext_resource path="res://assets/art/background/cloud-1.png" type="Texture" id=5]
-[ext_resource path="res://assets/art/background/cloud-2.png" type="Texture" id=6]
-[ext_resource path="res://assets/art/background/cloud-3.png" type="Texture" id=7]
-[ext_resource path="res://assets/art/background/cloud-5.png" type="Texture" id=8]
-[ext_resource path="res://assets/art/background/cloud-4.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/background/BG_tree-1.png" type="Texture2D" id=1]
+[ext_resource path="res://assets/art/background/BG_tilablemountain-2.png" type="Texture2D" id=2]
+[ext_resource path="res://assets/art/background/BG_tilablemountain-1.png" type="Texture2D" id=3]
+[ext_resource path="res://assets/art/background/BG_tree-2.png" type="Texture2D" id=4]
+[ext_resource path="res://assets/art/background/cloud-1.png" type="Texture2D" id=5]
+[ext_resource path="res://assets/art/background/cloud-2.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/art/background/cloud-3.png" type="Texture2D" id=7]
+[ext_resource path="res://assets/art/background/cloud-5.png" type="Texture2D" id=8]
+[ext_resource path="res://assets/art/background/cloud-4.png" type="Texture2D" id=9]
 
 [node name="TreeParallaxBg" type="ParallaxBackground"]
 scroll_base_scale = Vector2( 0.5, 0.5 )
@@ -17,35 +17,35 @@ scroll_base_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 2048, 2048 )
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxSky"]
-margin_right = 2048.0
-margin_bottom = 2048.0
+offset_right = 2048.0
+offset_bottom = 2048.0
 color = Color( 0.619608, 0.909804, 1, 1 )
 
 [node name="ParallaxClouds" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.06, 0.03 )
 motion_mirroring = Vector2( 2048, 0 )
 
-[node name="CloudSprite" type="Sprite" parent="ParallaxClouds"]
+[node name="CloudSprite" type="Sprite2D" parent="ParallaxClouds"]
 position = Vector2( 151.4, -24.6 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 5 )
 
-[node name="CloudSprite2" type="Sprite" parent="ParallaxClouds"]
+[node name="CloudSprite2" type="Sprite2D" parent="ParallaxClouds"]
 position = Vector2( 519.4, -168.6 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 6 )
 
-[node name="CloudSprite3" type="Sprite" parent="ParallaxClouds"]
+[node name="CloudSprite3" type="Sprite2D" parent="ParallaxClouds"]
 position = Vector2( 993.4, -53.6 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 7 )
 
-[node name="CloudSprite4" type="Sprite" parent="ParallaxClouds"]
+[node name="CloudSprite4" type="Sprite2D" parent="ParallaxClouds"]
 position = Vector2( 1930, -60 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 9 )
 
-[node name="CloudSprite5" type="Sprite" parent="ParallaxClouds"]
+[node name="CloudSprite5" type="Sprite2D" parent="ParallaxClouds"]
 position = Vector2( 1463.4, -119.6 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 8 )
@@ -54,7 +54,7 @@ texture = ExtResource( 8 )
 motion_scale = Vector2( 0.1, 0.05 )
 motion_mirroring = Vector2( 1024, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxMountain2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxMountain2"]
 modulate = Color( 0.631373, 1, 0.513726, 1 )
 position = Vector2( 0, -200 )
 scale = Vector2( 0.5, 0.5 )
@@ -67,7 +67,7 @@ region_rect = Rect2( 0, 0, 2048, 2048 )
 motion_scale = Vector2( 0.2, 0.1 )
 motion_mirroring = Vector2( 1024, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxMountain1"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxMountain1"]
 modulate = Color( 0.631373, 1, 0.513726, 1 )
 position = Vector2( 0, -100 )
 scale = Vector2( 0.5, 0.5 )
@@ -80,7 +80,7 @@ region_rect = Rect2( 0, 0, 2048, 2048 )
 motion_scale = Vector2( 0.3, 0.22 )
 motion_mirroring = Vector2( 1024, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxTrees2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxTrees2"]
 modulate = Color( 0.631373, 1, 0.513726, 1 )
 position = Vector2( 0, 30 )
 scale = Vector2( 0.5, 0.5 )
@@ -93,7 +93,7 @@ region_rect = Rect2( 0, 0, 2048, 2048 )
 motion_scale = Vector2( 0.4, 0.3 )
 motion_mirroring = Vector2( 1024, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxTrees1"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxTrees1"]
 modulate = Color( 0.631373, 1, 0.513726, 1 )
 position = Vector2( 0, 120 )
 scale = Vector2( 0.5, 0.5 )

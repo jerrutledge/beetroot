@@ -1,6 +1,6 @@
 using Godot;
 
-public class WithLoop : Control
+public partial class WithLoop : Control
 {
     private InkPlayer player;
     private StoryContainer container;

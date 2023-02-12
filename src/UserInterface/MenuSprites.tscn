@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/art/ui/Title.png" type="Texture" id=1]
-[ext_resource path="res://assets/art/ui/Roots.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/ui/Title.png" type="Texture2D" id=1]
+[ext_resource path="res://assets/art/ui/Roots.png" type="Texture2D" id=2]
 
 [node name="Sprites" type="Control"]
 anchor_left = 0.5
@@ -9,10 +9,10 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
-[node name="Roots" type="Sprite" parent="."]
+[node name="Roots" type="Sprite2D" parent="."]
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
 
-[node name="Title" type="Sprite" parent="."]
+[node name="Title" type="Sprite2D" parent="."]
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 1 )

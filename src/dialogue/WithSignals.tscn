@@ -18,18 +18,18 @@ autoLoadStory = true
 story = ExtResource( 1 )
 
 [node name="ChoiceBox" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="MarginContainer" type="ScrollContainer" parent="ChoiceBox"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -50.0
-margin_top = -50.0
-margin_right = 50.0
-margin_bottom = 50.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
 grow_vertical = 0
 
 [node name="Choices" type="VBoxContainer" parent="ChoiceBox/MarginContainer"]

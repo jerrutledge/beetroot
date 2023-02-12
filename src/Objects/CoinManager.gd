@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node
 
 var _id_counter = 0

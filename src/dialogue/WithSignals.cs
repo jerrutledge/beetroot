@@ -1,6 +1,6 @@
 using Godot;
 
-public class WithSignals : Control
+public partial class WithSignals : Control
 {
     private InkPlayer player;
     private StoryContainer container;
@@ -20,7 +20,7 @@ public class WithSignals : Control
             WaitTime = 0.3f,
             OneShot = true,
         };
-        timer.Connect("timeout", player, "Continue");
+        timer.Connect("timeout",new Callable(player,"Continue"));
         AddChild(timer);
     }
 

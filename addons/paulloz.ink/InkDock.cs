@@ -3,7 +3,7 @@ using Godot;
 using System.Linq;
 
 [Tool]
-public class InkDock : Control
+public partial class InkDock : Control
 {
 
 	private InkPlayer player;
@@ -33,11 +33,11 @@ public class InkDock : Control
 		stopButton = GetNode<Button>("Container/Left/Top/StopButton");
 		clearButton = GetNode<Button>("Container/Left/Top/ClearButton");
 
-		loadButton.Connect("pressed", fileDialog, "popup_centered");
-		fileDialog.Connect("popup_hide", this, nameof(LoadStoryResource));
-		startButton.Connect("pressed", this, nameof(StartStory));
-		stopButton.Connect("pressed", this, nameof(StopStory));
-		clearButton.Connect("pressed", this, nameof(ClearStory), new Godot.Collections.Array { false });
+		loadButton.Connect("pressed",new Callable(fileDialog,"popup_centered"));
+		fileDialog.Connect("popup_hide",new Callable(this,nameof(LoadStoryResource)));
+		startButton.Connect("pressed",new Callable(this,nameof(StartStory)));
+		stopButton.Connect("pressed",new Callable(this,nameof(StopStory)));
+		clearButton.Connect("pressed",new Callable(this,nameof(ClearStory)),new Godot.Collections.Array { false });
 
 		// Initialize bottom.
 		storyText = GetNode<VBoxContainer>("Container/Left/Scroll/Margin/StoryText");
@@ -78,9 +78,9 @@ public class InkDock : Control
 			player = new InkPlayer();
 			player.LoadStory(ResourceLoader.Load<Resource>(fileDialog.CurrentPath));
 
-			player.Connect(nameof(InkPlayer.InkContinued), this, nameof(OnStoryContinued));
-			player.Connect(nameof(InkPlayer.InkChoices), this, nameof(OnStoryChoices));
-			player.Connect(nameof(InkPlayer.InkEnded), this, nameof(OnStoryEnded));
+			player.Connect(nameof(InkPlayer.InkContinued),new Callable(this,nameof(OnStoryContinued)));
+			player.Connect(nameof(InkPlayer.InkChoices),new Callable(this,nameof(OnStoryChoices)));
+			player.Connect(nameof(InkPlayer.InkEnded),new Callable(this,nameof(OnStoryEnded)));
 
 			AddChild(player);
 		}
@@ -135,7 +135,7 @@ public class InkDock : Control
 					Align = Label.AlignEnum.Center,
 					Text = $"# {string.Join(", ", tags)}",
 				};
-				newLine.AddColorOverride("font_color", GetColor("font_color_disabled", "Button"));
+				newLine.AddThemeColorOverride("font_color", GetColor("font_color_disabled", "Button"));
 				AddToStory(newLine);
 			}
 		}
@@ -154,7 +154,7 @@ public class InkDock : Control
 			{
 				Text = choice,
 			};
-			button.Connect("pressed", this, nameof(ClickChoice), new Godot.Collections.Array() { i });
+			button.Connect("pressed",new Callable(this,nameof(ClickChoice)),new Godot.Collections.Array() { i });
 			storyChoices.AddChild(button);
 			++i;
 		}
@@ -194,7 +194,7 @@ public class InkDock : Control
 		storyText.AddChild(item);
 		await ToSignal(GetTree(), "idle_frame");
 		await ToSignal(GetTree(), "idle_frame");
-		scroll.ScrollVertical = (int)scroll.GetVScrollbar().MaxValue;
+		scroll.ScrollVertical = (int)scroll.GetVScrollBar().MaxValue;
 	}
 
 	private void RemoveAllStoryContent()

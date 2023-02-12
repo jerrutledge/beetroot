@@ -2,10 +2,10 @@ extends AudioStreamPlayer
 
 const DOUBLE_VOLUME_DB = 6 # Do not change. Represents doubling of sound pressure.
 
-export(int) var base_volume_db = -14
+@export var base_volume_db: int = -14
 
 func _ready():
-	# To avoid AudioStreamPlayer2D sounds playing on top of each other and
+	# To avoid AudioStreamPlayer2D sounds playing checked top of each other and
 	# being very loud, let's decrease the volume for splitscreen mode, but
 	# increase the music volume to keep the music at the same volume.
 	#if get_parent().get_owner().name == "Splitscreen":

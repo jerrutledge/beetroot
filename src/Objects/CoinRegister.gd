@@ -1,9 +1,9 @@
-tool
+@tool
 extends Node
 
 # This class has to be parented by a CoinManager
-export(int) var coin_id = 0
-onready var coin_object = $CoinObject
+@export var coin_id: int = 0
+@onready var coin_object = $CoinObject
 
 # we need to add a unique coin ID for every coin placed in the level
 func _ready():

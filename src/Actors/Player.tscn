@@ -1,25 +1,25 @@
 [gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/art/player/frames/walking/frame_6.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/player/sprite_frames/walking/frame_6.png" type="Texture2D" id=2]
 [ext_resource path="res://assets/audio/sfx/ShroomieJump105724.mp3" type="AudioStream" id=3]
-[ext_resource path="res://assets/art/player/frames/walking/frame_0.png" type="Texture" id=4]
-[ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture" id=5]
-[ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture" id=6]
-[ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
-[ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
-[ext_resource path="res://assets/art/player/frames/walking/frame_1.png" type="Texture" id=9]
-[ext_resource path="res://assets/art/player/frames/walking/frame_7.png" type="Texture" id=10]
-[ext_resource path="res://assets/art/player/frames/walking/frame_2.png" type="Texture" id=11]
-[ext_resource path="res://assets/art/player/frames/walking/frame_3.png" type="Texture" id=12]
-[ext_resource path="res://assets/art/player/frames/walking/frame_4.png" type="Texture" id=13]
-[ext_resource path="res://assets/art/player/frames/walking/frame_5.png" type="Texture" id=14]
-[ext_resource path="res://assets/art/player/frames/jump/frame_2.png" type="Texture" id=16]
-[ext_resource path="res://assets/art/player/frames/glide/frame_1.png" type="Texture" id=21]
+[ext_resource path="res://assets/art/player/sprite_frames/walking/frame_0.png" type="Texture2D" id=4]
+[ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture2D" id=5]
+[ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture2D" id=7]
+[ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture2D" id=8]
+[ext_resource path="res://assets/art/player/sprite_frames/walking/frame_1.png" type="Texture2D" id=9]
+[ext_resource path="res://assets/art/player/sprite_frames/walking/frame_7.png" type="Texture2D" id=10]
+[ext_resource path="res://assets/art/player/sprite_frames/walking/frame_2.png" type="Texture2D" id=11]
+[ext_resource path="res://assets/art/player/sprite_frames/walking/frame_3.png" type="Texture2D" id=12]
+[ext_resource path="res://assets/art/player/sprite_frames/walking/frame_4.png" type="Texture2D" id=13]
+[ext_resource path="res://assets/art/player/sprite_frames/walking/frame_5.png" type="Texture2D" id=14]
+[ext_resource path="res://assets/art/player/sprite_frames/jump/frame_2.png" type="Texture2D" id=16]
+[ext_resource path="res://assets/art/player/sprite_frames/glide/frame_1.png" type="Texture2D" id=21]
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 21 ) ],
+"sprite_frames": [ ExtResource( 4 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "Shroom",
 "speed": 5.0
@@ -31,14 +31,14 @@ length = 0.01
 loop = true
 step = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 22 ]
 }
@@ -49,26 +49,26 @@ length = 0.01
 loop = true
 step = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 8 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:offset")
+tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 40 ) ]
 }
@@ -78,26 +78,26 @@ resource_name = "fastrun"
 length = 0.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:offset")
+tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
@@ -106,26 +106,26 @@ tracks/1/keys = {
 resource_name = "glide"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.7 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.7 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 9 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:offset")
+tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -230 ) ]
 }
@@ -135,26 +135,26 @@ length = 7.0
 loop = true
 step = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:offset")
+tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
@@ -164,26 +164,26 @@ length = 0.5
 loop = true
 step = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 8 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:offset")
+tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 40 ) ]
 }
@@ -193,26 +193,26 @@ length = 2.0
 loop = true
 step = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 7 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:offset")
+tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
@@ -220,7 +220,7 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 31, 54.25 )
 
-[node name="Player" type="KinematicBody2D" groups=["players"]]
+[node name="Player" type="CharacterBody2D" groups=["players"]]
 collision_mask = 30
 script = ExtResource( 1 )
 speed = Vector2( 300, 1200 )
@@ -235,10 +235,10 @@ enabled = true
 cast_to = Vector2( 0, 6 )
 collision_mask = 8
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2( 1, -58 )
 scale = Vector2( 0.0642737, 0.0642737 )
-frames = SubResource( 12 )
+sprite_frames = SubResource( 12 )
 animation = "Shroom"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -251,7 +251,7 @@ anims/idle = SubResource( 4 )
 anims/jumping = SubResource( 6 )
 anims/run = SubResource( 8 )
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera3D" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )
 current = true
 process_mode = 0

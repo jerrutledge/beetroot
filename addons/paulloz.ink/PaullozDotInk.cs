@@ -3,7 +3,7 @@ using Godot;
 using Godot.Collections;
 
 [Tool]
-public class PaullozDotInk : EditorPlugin
+public partial class PaullozDotInk : EditorPlugin
 {
     private readonly Dictionary settings = new Dictionary() {
         {"inklecate_path", new Dictionary() {
@@ -50,7 +50,7 @@ public class PaullozDotInk : EditorPlugin
         ProjectSettings.Save();
 
         // Custom types
-        Texture icon = GD.Load<Texture>(customTypeIconPath);
+        Texture2D icon = GD.Load<Texture2D>(customTypeIconPath);
         CSharpScript customTypeScript = GD.Load<CSharpScript>(customTypeScriptPath);
         AddCustomType("InkPlayer", "Node", customTypeScript, icon);
 

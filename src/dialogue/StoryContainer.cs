@@ -3,7 +3,7 @@ using System;
 
 using GodotArray = Godot.Collections.Array;
 
-public class StoryContainer : Control
+public partial class StoryContainer : Control
 {
     [Signal]
     public delegate void ChoiceClick(int choiceIndex);
@@ -23,7 +23,7 @@ public class StoryContainer : Control
         Tween tween = new Tween();
         tween.InterpolateProperty(newNode, "modulate", Colors.Transparent, Colors.White, 0.5f,
                                   Tween.TransitionType.Linear, Tween.EaseType.InOut, delay);
-        tween.Connect("tween_all_completed", tween, "queue_free");
+        tween.Connect("tween_all_completed",new Callable(tween,"queue_free"));
         newNode.AddChild(tween);
         newNode.Modulate = Colors.Transparent;
         container.AddChild(newNode); // We actually add the thing here
@@ -31,12 +31,12 @@ public class StoryContainer : Control
 
         // Wait for the scrollbar to recalculate and scroll to the bottom
         await ToSignal(GetTree(), "idle_frame");
-        scroll.ScrollVertical = (int)scroll.GetVScrollbar().MaxValue;
+        scroll.ScrollVertical = (int)scroll.GetVScrollBar().MaxValue;
     }
 
     public void CleanChoices()
     {
-        // Remove all nodes in choiceButtons group
+        // RemoveAt all nodes in choiceButtons group
         foreach (Node choice in GetTree().GetNodesInGroup("choiceButtons"))
             choice.QueueFree();
     }
@@ -59,7 +59,7 @@ public class StoryContainer : Control
             SizeFlagsHorizontal = (int)SizeFlags.ShrinkCenter,
         };
         button.AddToGroup("choiceButtons");
-        button.Connect("pressed", this, "OnButtonPressed", new GodotArray { choiceIndex });
+        button.Connect("pressed",new Callable(this,"OnButtonPressed"),new GodotArray { choiceIndex });
         return button;
     }
 
