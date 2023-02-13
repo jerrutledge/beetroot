@@ -1,49 +1,18 @@
-; Project was converted by built-in tool to Godot 4.0
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
-_global_script_classes=[{
-"base": "KinematicBody2D",
-"class": "Actor",
-"language": "GDScript",
-"path": "res://src/Actors/Actor.gd"
-}, {
-"base": "RigidBody2D",
-"class": "Bullet",
-"language": "GDScript",
-"path": "res://src/Objects/Bullet.gd"
-}, {
-"base": "Area2D",
-"class": "Coin",
-"language": "GDScript",
-"path": "res://src/Objects/Coin.gd"
-}, {
-"base": "Actor",
-"class": "Enemy",
-"language": "GDScript",
-"path": "res://src/Actors/Enemy.gd"
-}, {
-"base": "Position2D",
-"class": "Gun",
-"language": "GDScript",
-"path": "res://src/Actors/Gun.gd"
-}, {
-"base": "Actor",
-"class": "Player",
-"language": "GDScript",
-"path": "res://src/Actors/Player.gd"
-}]
-_global_script_class_icons={
-"Actor": "",
-"Bullet": "",
-"Coin": "",
-"Enemy": "",
-"Gun": "",
-"Player": ""
-}
 
 [application]
 
 config/name="Shroomed"
 run/main_scene="res://src/UserInterface/TitleScreen.tscn"
+config/features=PackedStringArray("4.0")
 boot_splash/bg_color=Color(0.509804, 0.188235, 0.447059, 1)
 config/icon="res://icon.png"
 
@@ -51,9 +20,12 @@ config/icon="res://icon.png"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="Shroomed"
 
 [editor]
 
@@ -65,9 +37,9 @@ enabled=PackedStringArray("res://addons/paulloz.ink/plugin.cfg")
 
 [gui]
 
-common/drop_mouse_on_gui_input_disabled=true
 theme/custom="res://assets/theme/new_ui_theme.tres"
 theme/custom_font="res://assets/theme/fonts/aleo_dynamicfont.tres"
+common/drop_mouse_on_gui_input_disabled=true
 
 [input]
 
@@ -195,8 +167,8 @@ project/assembly_name="Beetroot"
 
 [physics]
 
-common/enable_pause_aware_picking=true
 2d/default_gravity=900
+common/enable_pause_aware_picking=true
 
 [rendering]
 
