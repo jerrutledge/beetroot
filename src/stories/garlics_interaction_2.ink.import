@@ -1,0 +1,15 @@
+[remap]
+
+importer="ink"
+type="Resource"
+path="res://.import/garlics_interaction_2.ink-58f1878b9b6276afb9021d3e1b922987.res"
+
+[deps]
+
+source_file="res://src/stories/garlics_interaction_2.ink"
+dest_files=[ "res://.import/garlics_interaction_2.ink-58f1878b9b6276afb9021d3e1b922987.res" ]
+
+[params]
+
+is_master_file=true
+compress=true

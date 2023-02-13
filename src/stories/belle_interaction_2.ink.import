@@ -1,0 +1,15 @@
+[remap]
+
+importer="ink"
+type="Resource"
+path="res://.import/belle_interaction_2.ink-e8bfba753b6144cb0666f89e389d49d6.res"
+
+[deps]
+
+source_file="res://src/stories/belle_interaction_2.ink"
+dest_files=[ "res://.import/belle_interaction_2.ink-e8bfba753b6144cb0666f89e389d49d6.res" ]
+
+[params]
+
+is_master_file=true
+compress=true

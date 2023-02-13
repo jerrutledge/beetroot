@@ -1,0 +1,15 @@
+[remap]
+
+importer="ink"
+type="Resource"
+path="res://.import/gene_interaction_1.ink-cb618a9df4618c6a65087593c37a0967.res"
+
+[deps]
+
+source_file="res://src/stories/gene_interaction_1.ink"
+dest_files=[ "res://.import/gene_interaction_1.ink-cb618a9df4618c6a65087593c37a0967.res" ]
+
+[params]
+
+is_master_file=true
+compress=true
