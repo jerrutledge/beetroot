@@ -90,9 +90,10 @@ autoplay = true
 position = Vector2( 688, 349 )
 collision_layer = 0
 start = "knotName"
+single_use = true
 
 [node name="CollisionShape2D" parent="Event" index="0"]
-position = Vector2( 269, -45 )
+position = Vector2( -199, 831 )
 
 [node name="InkPlayer" parent="Event" index="1"]
 story = ExtResource( 7 )

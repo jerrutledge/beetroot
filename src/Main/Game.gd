@@ -94,3 +94,6 @@ func is_coin_id_valid(coin_id):
 
 func _on_begin_dialogue(ink_player, npc, start):
 	_dialog_box.begin_dialog(ink_player, npc, start)
+	var parent = ink_player.get_parent()
+	if parent.has_method("_on_story_finished"):
+		_dialog_box.connect("dialog_end", parent, "_on_story_finished")

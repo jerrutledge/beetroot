@@ -2,6 +2,7 @@ extends Area2D
 
 onready var player = $InkPlayer
 export(String) var start = ""
+export(bool) var single_use = false
 
 signal begin_dialog(player_obj, calling_obj, vars)
 
@@ -15,3 +16,7 @@ func _on_Node2D_area_entered(area):
 	if area.is_in_group("current_player"):
 		print_debug("area")
 		emit_signal("begin_dialog", player, self, start)
+
+func _on_story_finished():
+	if single_use:
+		queue_free()
