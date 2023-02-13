@@ -19,11 +19,7 @@ func _ready():
 	
 func _process(_delta):
 	if (Input.is_action_just_pressed("ui_accept")):
-		if finished and player != null:
-			finished = false
-			player.Continue()
-		else:
-			$Text.visible_characters = len($Text.text)
+		continue_dialogue()
 	
 func nextPhrase(name, text):
 	$Name.text = name
@@ -93,9 +89,12 @@ func begin_dialog(ink_player, _npc, start):
 	finished = false
 	ink_player.Continue()
 
+func continue_dialogue():
+	if finished and player != null:
+		finished = false
+		player.Continue()
+	else:
+		$Text.visible_characters = len($Text.text)
+
 func _on_Leaf_button_pressed():
-	# simulate ui_accept
-	var ev = InputEventAction.new()
-	ev.action = "ui_accept"
-	ev.pressed = true
-	Input.parse_input_event(ev)
+	continue_dialogue()
