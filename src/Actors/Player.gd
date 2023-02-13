@@ -70,8 +70,10 @@ func _physics_process(_delta):
 		
 		running = Input.is_action_pressed("run")
 		
-		var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
-		_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
+		var is_jump_interrupted = Input.is_action_just_released(
+			"jump" + action_suffix) and _velocity.y < 0.0
+		_velocity = calculate_move_velocity(_velocity, 
+			direction, speed, is_jump_interrupted)
 		
 		if running:
 			_velocity.x *= 2.0
@@ -122,7 +124,9 @@ func _input(event):
 
 func get_direction(jump):
 	return Vector2(
-		Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix),
+		Input.get_action_strength("move_right" + 
+		action_suffix) - Input.get_action_strength("move_left" + 
+		action_suffix),
 		-1 if jump else 0
 	)
 
@@ -193,7 +197,8 @@ func tween_camera_pos(end_x, end_y):
 	var tween = $Tween
 	tween.remove_all()
 	tween.interpolate_property($Camera, "offset", 
-		null, Vector2(end_x, end_y), 0.6)
+		null, Vector2(end_x, end_y), 0.6, Tween.TRANS_QUART, 
+		Tween.EASE_OUT)
 	tween.start()
 
 func cutscene_start():
