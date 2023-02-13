@@ -1,3 +1,7 @@
+Dialogue
+->knotName
+
+=== knotName ===
 Once upon a time...
 
  * There were two choices.
