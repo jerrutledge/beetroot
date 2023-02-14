@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/art/tileset/ground_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://addons/paulloz.ink/InkPlayer.cs" type="Script" id=2]
+[ext_resource path="res://assets/art/characters/Belle.png" type="Texture" id=3]
+[ext_resource path="res://src/Interactable/NPC.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Interactable/InteractableOutline.gdshader" type="Shader" id=5]
+[ext_resource path="res://src/stories/belle_interaction_1.ink" type="Resource" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 0.0
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Level2" type="Node2D"]
+
+[node name="NPC" parent="." instance=ExtResource( 4 )]
+position = Vector2( 157, 302 )
+start = "belle_interaction_1_start"
+
+[node name="Sprite" parent="NPC" index="0"]
+material = SubResource( 1 )
+frames = SubResource( 2 )
+
+[node name="InkPlayer" type="Node" parent="NPC"]
+script = ExtResource( 2 )
+autoLoadStory = true
+story = ExtResource( 6 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_layer = 16
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 458745, 8, 0, 458746, 8, 0, 458747, 8, 0, 458748, 8, 0, 458751, 8, 0, 393216, 8, 0, 393217, 8, 0, 393218, 8, 0, 393219, 8, 0, 393220, 8, 0, 393221, 8, 0, 655355, 17, 0, 655356, 17, 0, 655357, 17, 0, 655358, 17, 0, 655359, 17, 0, 720896, 17, 0, 720897, 17, 0, 720898, 17, 0, 720899, 17, 0, 720900, 17, 0, 917510, 17, 0, 917511, 17, 0, 917512, 17, 0, 983040, 15, 0, 983041, 15, 0, 1114096, 8, 0, 1114097, 8, 0, 1114098, 8, 0, 1114099, 8, 0, 1114100, 8, 0, 1114101, 8, 0, 1114102, 8, 0, 1114103, 8, 0, 1114104, 8, 0, 1114105, 8, 0, 1114106, 8, 0, 1114107, 8, 0, 1114108, 8, 0, 1114109, 8, 0, 1114110, 8, 0, 1114111, 8, 0, 1048576, 8, 0, 1048577, 8, 0, 1048578, 8, 0, 1048579, 8, 0, 1048580, 8, 0, 1048581, 8, 0, 1048582, 8, 0, 1048583, 8, 0, 1048584, 8, 0, 1048585, 8, 0, 1048586, 8, 0, 1048587, 8, 0, 1048588, 8, 0, 1048589, 8, 0, 1048590, 8, 0, 1048591, 8, 0, 1048592, 8, 0, 1048593, 8, 0, 1048594, 8, 0, 1048595, 8, 0, 1048596, 8, 0, 1048597, 8, 0, 1048598, 8, 0, 1048599, 8, 0, 1048600, 8, 0, 1048601, 8, 0, 1048602, 8, 0, 1048603, 8, 0, 1048604, 8, 0 )
+
+[editable path="NPC"]
