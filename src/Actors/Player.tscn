@@ -274,15 +274,15 @@ anchor_bottom = 0.95
 
 [node name="Left" type="TouchScreenButton" parent="UI/BottomLeft"]
 position = Vector2( 0, -80 )
-scale = Vector2( 1.49157, 1.46265 )
+scale = Vector2( 2, 2 )
 normal = ExtResource( 5 )
 passby_press = true
 action = "move_left"
 visibility_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="UI/BottomLeft"]
-position = Vector2( 100, -80 )
-scale = Vector2( 1.49157, 1.46265 )
+position = Vector2( 150, -80 )
+scale = Vector2( 2, 2 )
 normal = ExtResource( 6 )
 passby_press = true
 action = "move_right"
@@ -296,14 +296,14 @@ anchor_bottom = 0.95
 
 [node name="Jump" type="TouchScreenButton" parent="UI/BottomRight"]
 position = Vector2( -100, -100 )
-scale = Vector2( 1.49157, 1.46265 )
+scale = Vector2( 2, 2 )
 normal = ExtResource( 7 )
 action = "jump"
 visibility_mode = 1
 
 [node name="Interact" type="TouchScreenButton" parent="UI/BottomRight"]
-position = Vector2( -100, -200 )
-scale = Vector2( 1.49157, 1.46265 )
+position = Vector2( -100, -250 )
+scale = Vector2( 2, 2 )
 normal = ExtResource( 8 )
 action = "interact"
 visibility_mode = 1
