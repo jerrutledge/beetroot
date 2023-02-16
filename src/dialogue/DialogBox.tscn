@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/dialogue/DialogBox.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/ui/Leafcr.png" type="Texture" id=2]
 [ext_resource path="res://assets/theme/new_ui_theme.tres" type="Theme" id=3]
+[ext_resource path="res://addons/paulloz.ink/InkPlayer.cs" type="Script" id=4]
+[ext_resource path="res://src/stories/upon.json" type="Resource" id=5]
 
 [node name="DialogBox" type="ColorRect"]
 pause_mode = 1
@@ -66,4 +68,12 @@ margin_bottom = 42.0
 icon = ExtResource( 2 )
 expand_icon = true
 
+[node name="InkPlayer" type="Node" parent="."]
+script = ExtResource( 4 )
+autoLoadStory = true
+story = ExtResource( 5 )
+
 [connection signal="pressed" from="Control/Button" to="." method="_on_Leaf_button_pressed"]
+[connection signal="InkChoices" from="InkPlayer" to="." method="_on_story_choices"]
+[connection signal="InkContinued" from="InkPlayer" to="." method="_on_story_continued"]
+[connection signal="InkEnded" from="InkPlayer" to="." method="_on_story_ink_ended"]

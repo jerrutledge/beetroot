@@ -92,8 +92,7 @@ func is_coin_id_valid(coin_id):
 			print_debug(_level_node.name + " not in coin dict")
 			return true
 
-func _on_begin_dialogue(ink_player, npc, start):
-	_dialog_box.begin_dialog(ink_player, npc, start)
-	var parent = ink_player.get_parent()
-	if parent.has_method("_on_story_finished"):
-		_dialog_box.connect("dialog_end", parent, "_on_story_finished")
+func _on_begin_dialogue(caller, start):
+	_dialog_box.begin_dialog(caller, start)
+	if caller.has_method("_on_story_finished"):
+		_dialog_box.connect("dialog_end", caller, "_on_story_finished")
