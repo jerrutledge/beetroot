@@ -2,12 +2,12 @@
 
 importer="ink"
 type="Resource"
-path="res://.import/Shroomie_source_one_file.ink.json-978344877787aaee25cd9c15854eac7b.res"
+path="res://.import/Shroomie_source_one_file.ink.json-7815baa54035867f135f97c7da3f8f57.res"
 
 [deps]
 
-source_file="res://src/stories/Shroomie_source_one_file.ink.json"
-dest_files=[ "res://.import/Shroomie_source_one_file.ink.json-978344877787aaee25cd9c15854eac7b.res" ]
+source_file="res://assets/stories/Shroomie_source_one_file.ink.json"
+dest_files=[ "res://.import/Shroomie_source_one_file.ink.json-7815baa54035867f135f97c7da3f8f57.res" ]
 
 [params]
 
