@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/art/tileset/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Objects/portal.tscn" type="PackedScene" id=2]
@@ -7,11 +7,9 @@
 [ext_resource path="res://src/Level/Level.gd" type="Script" id=5]
 [ext_resource path="res://assets/art/platforms/moving_platform.png" type="Texture" id=6]
 [ext_resource path="res://src/Level/ParallaxBackground.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/stories/final_shroomie_gene.ink" type="Resource" id=8]
 [ext_resource path="res://src/Interactable/AnimationSwitch.gd" type="Script" id=9]
 [ext_resource path="res://src/Objects/CoinManager.gd" type="Script" id=10]
 [ext_resource path="res://src/Interactable/NPC.tscn" type="PackedScene" id=11]
-[ext_resource path="res://addons/paulloz.ink/InkPlayer.cs" type="Script" id=12]
 [ext_resource path="res://assets/art/characters/eggplant.png" type="Texture" id=14]
 [ext_resource path="res://src/Interactable/InteractableOutline.gdshader" type="Shader" id=15]
 
@@ -310,10 +308,5 @@ start = "gene_interaction_1_start.0.0"
 [node name="Sprite" parent="NPC" index="0"]
 material = SubResource( 3 )
 frames = SubResource( 4 )
-
-[node name="InkPlayer" type="Node" parent="NPC"]
-script = ExtResource( 12 )
-autoLoadStory = true
-story = ExtResource( 8 )
 
 [editable path="NPC"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Interactable/InteractableOutline.gdshader" type="Shader" id=1]
 [ext_resource path="res://assets/art/tileset/ground_tileset.tres" type="TileSet" id=2]
@@ -6,10 +6,7 @@
 [ext_resource path="res://src/Level/ParallaxForest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/audio/music/Komiku_-_03_-_Mushrooms.mp3" type="AudioStream" id=5]
 [ext_resource path="res://src/dialogue/Event.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/stories/upon.json" type="Resource" id=7]
 [ext_resource path="res://src/Level/Level1.gd" type="Script" id=8]
-[ext_resource path="res://addons/paulloz.ink/InkPlayer.cs" type="Script" id=10]
-[ext_resource path="res://src/stories/final_shroomie_gene.ink" type="Resource" id=11]
 [ext_resource path="res://assets/art/characters/eggplant.png" type="Texture" id=12]
 
 [sub_resource type="ShaderMaterial" id=10]
@@ -61,11 +58,6 @@ shape = SubResource( 12 )
 [node name="AnimationPlayer" parent="NPC" index="2"]
 pause_mode = 2
 
-[node name="InkPlayer" type="Node" parent="NPC"]
-script = ExtResource( 10 )
-autoLoadStory = true
-story = ExtResource( 11 )
-
 [node name="Label" type="Label" parent="NPC"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -96,9 +88,6 @@ single_use = true
 
 [node name="CollisionShape2D" parent="Event" index="0"]
 position = Vector2( -199, 831 )
-
-[node name="InkPlayer" parent="Event" index="1"]
-story = ExtResource( 7 )
 
 [connection signal="area_shape_entered" from="Event" to="NPC" method="_on_Node2D_area_entered"]
 

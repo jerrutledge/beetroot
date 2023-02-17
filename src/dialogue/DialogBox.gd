@@ -8,13 +8,14 @@ export var dialogPath = ""
 export(float) var textSpeed = 0.05
 
 onready var options = $Options
-
-var player = null
+onready var player = $InkPlayer
+var in_dialogue = false
 var finished = false
 
 func _ready():
 	$Timer.wait_time = textSpeed
 	visible = false
+	in_dialogue = false
 	$Name.text = ""
 	
 func _process(_delta):
@@ -39,11 +40,8 @@ func _on_story_ink_ended():
 	visible = false
 	print_debug("Dialog finished.")
 	# disconnect all signals
+	in_dialogue = false
 	emit_signal("dialog_end")
-	var _idc = player.disconnect("InkChoices", self, "_on_story_choices")
-	_idc = player.disconnect("InkContinued", self, "_on_story_continued")
-	_idc = player.disconnect("InkEnded", self, "_on_story_ink_ended")
-	player = null
 
 func _on_story_continued(text, tags):
 	print_debug(player.GetState())
@@ -74,20 +72,17 @@ func _on_choice_click(choicenum):
 	var next_text = player.ChooseChoiceIndexAndContinue(choicenum);
 	nextPhrase("", next_text)
 
-func begin_dialog(ink_player, _npc, start):
-	if (player != null):
+func begin_dialog(_npc, start):
+	if (in_dialogue):
 		return
 	visible = true
 	print_debug("Dialog started...")
-	player = ink_player
 	player.ChoosePathString(start)
 	emit_signal("dialog_start")
 	# connect all signals
-	var _idc = ink_player.connect("InkChoices", self, "_on_story_choices")
-	_idc = ink_player.connect("InkContinued", self, "_on_story_continued")
-	_idc = ink_player.connect("InkEnded", self, "_on_story_ink_ended")
+	in_dialogue = true
 	finished = false
-	ink_player.Continue()
+	player.Continue()
 
 func continue_dialogue():
 	if finished and player != null:
